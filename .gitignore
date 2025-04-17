@@ -1,0 +1,8 @@
+nimcache/
+nimblecache/
+htmldocs/
+*.exe
+*.dll
+*.so
+*.dylib
+*.pc 
