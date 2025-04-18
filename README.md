@@ -13,7 +13,7 @@ nimble install prl_to_pc
 ### As a Command Line Tool
 
 ```bash
-prl_to_pc <input_dir> <output_dir>
+prl_to_pc <input_dir> <output_dir> <prefix_dir> <hosts_bin>
 ```
 
 This will scan the `input_dir` for `.prl` files and generate corresponding `.pc` files in the `output_dir`.
@@ -26,8 +26,10 @@ In your nimble file, you can import and use the task:
 import prl_to_pc
 
 task convertPrl, "Convert .prl files to .pc files":
-  convertPrlToPc("path/to/prl/files", "path/to/output")
+  convertPrlToPc("path/to/prl/files", "path/to/output", "path/prefix", "path/to/hosts/bin")
 ```
+
+Or run `nimble convert "input" "output", "prefix", "host_bin"`
 
 ### As a Library
 
@@ -36,10 +38,10 @@ import prl_to_pc
 
 # Convert a single file
 let data = parsePrlFile("path/to/library.prl")
-generatePcFile(data, "output/directory")
+generatePcFile(data, "output/directory", "prefix")
 
 # Convert all files in a directory
-convertPrlToPc("input/directory", "output/directory")
+convertPrlToPc("input/directory", "output/directory", "prefix")
 ```
 
 ## License
