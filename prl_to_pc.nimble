@@ -1,9 +1,10 @@
 # Package
 version       = "0.1.0"
-author        = "Your Name"
+author        = "AlexJb"
 description   = "Convert Qt .prl files to pkg-config .pc files"
 license       = "MIT"
 srcDir        = "src"
+bin           = @["prl_to_pc"]
 
 # Dependencies
 requires "nim >= 1.6.0"
