@@ -8,6 +8,7 @@ bin           = @["prl_to_pc"]
 
 # Dependencies
 requires "nim >= 1.6.0"
+requires "regex"
 
 # Tasks
 task convert, "Convert .prl files to .pc files in a directory":
