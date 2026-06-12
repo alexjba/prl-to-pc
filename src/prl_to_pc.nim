@@ -1,4 +1,8 @@
-import os, strutils, re, strformat, sets
+import os, strutils, regex, strformat
+
+proc findAllStr(s: string, pattern: Regex2): seq[string] =
+  for m in findAll(s, pattern):
+    result.add s[m.boundaries]
 
 type
   QtModule = object
@@ -17,13 +21,13 @@ proc getQtVersion(prlPath: string): string =
   ## Get Qt version from the .prl file name or content
   result = "6.0.0"  # Default version if not found
   let fileName = prlPath.splitPath().tail
-  let versionMatch = fileName.findAll(re"\d+\.\d+\.\d+")
+  let versionMatch = findAllStr(fileName, re2"\d+\.\d+\.\d+")
   if versionMatch.len > 0:
     result = versionMatch[0]
   else:
     # Try to find version in parent directory names
     for parent in prlPath.parentDirs():
-      let dirVersionMatch = parent.splitPath().tail.findAll(re"\d+\.\d+\.\d+")
+      let dirVersionMatch = findAllStr(parent.splitPath().tail, re2"\d+\.\d+\.\d+")
       if dirVersionMatch.len > 0:
         result = dirVersionMatch[0]
         break
@@ -51,23 +55,25 @@ proc cleanFrameworkReferences(libs: string): string =
   ## Clean framework references like -framework $1
   result = libs
   # Replace framework references like "-framework $1" with proper framework names
-  result = result.replace(re"-framework\s+\$\d+", "")
+  result = result.replace(re2"-framework\s+\$\d+", "")
   # Remove any remaining framework references with no valid name
-  result = result.replace(re"-framework\s+\$\[\w+\]", "")
+  result = result.replace(re2"-framework\s+\$\[\w+\]", "")
   # Clean up any duplicate spaces
-  result = result.replace(re"\s+", " ").strip()
+  result = result.replace(re2"\s+", " ").strip()
   return result
 
 proc cleanInstallPathReferences(libs: string): string =
   ## Replace Qt install path references
   result = libs
   # Replace QT_INSTALL_LIBS references
-  result = result.replace(re"\$\$\[QT_INSTALL_LIBS\]", "${libdir}")
-  result = result.replace(re"\$\$\[QT_INSTALL_PREFIX\]", "${prefix}")
+  # Plain (literal) string replaces: the patterns are literal, and the ${...}
+  # replacements must NOT go through nim-regex (it treats $ as a capture ref).
+  result = result.replace("$$[QT_INSTALL_LIBS]", "${libdir}")
+  result = result.replace("$$[QT_INSTALL_PREFIX]", "${prefix}")
   # Replace QT_INSTALL_PLUGINS references
-  result = result.replace(re"\$\$\[QT_INSTALL_PLUGINS\]", "${prefix}/plugins")
+  result = result.replace("$$[QT_INSTALL_PLUGINS]", "${prefix}/plugins")
   # Replace QT_INSTALL_QML references
-  result = result.replace(re"\$\$\[QT_INSTALL_QML\]", "${prefix}/qml")
+  result = result.replace("$$[QT_INSTALL_QML]", "${prefix}/qml")
   return result
 
 proc isBundledLibrary(libName: string): bool =
@@ -95,7 +101,7 @@ proc getLibraryDir(prlFilePath: string): string =
 proc processFullPaths(libs: string, prefix: string): string =
   ## Process full paths to libraries to use -L/-l combination
   var result = libs
-  let matches = libs.findAll(re"\$\{libdir\}/lib[^/\s]+\.a")
+  let matches = findAllStr(libs, re2"\$\{libdir\}/lib[^/\s]+\.a")
   for match in matches:
     let libName = match.splitPath().tail.replace("lib", "").replace(".a", "")
     result = result.replace(match, "-l" & libName)
@@ -134,8 +140,8 @@ proc getDependencies(prlPath: string, content: string): seq[string] =
             # "QtCore_arm64-v8a.so" Requires entries.)
             elif part.contains("libQt"):
               let fileName = part.splitPath().tail
-              libName = fileName.replace(re"^lib", "")
-                         .replace(re"\.(a|so|dylib)(\.\d+)*$", "")
+              libName = fileName.replace(re2"^lib", "")
+                         .replace(re2"\.(a|so|dylib)(\.\d+)*$", "")
                          .replace("_debug", "")
             
             if libName.len > 0 and not result.contains(libName) and
@@ -246,7 +252,7 @@ proc parseFramework*(frameworkPath: string): QtModule =
   # Try to extract version from the Qt installation path
   var version = "6.0.0"  # Default version
   for parent in frameworkPath.parentDirs():
-    let versionMatch = parent.splitPath().tail.findAll(re"\d+\.\d+\.\d+")
+    let versionMatch = findAllStr(parent.splitPath().tail, re2"\d+\.\d+\.\d+")
     if versionMatch.len > 0:
       version = versionMatch[0]
       break
@@ -374,8 +380,8 @@ proc parsePrlFile*(filePath: string): QtModule =
               continue
             let fname = tok.splitPath().tail
             if fname.startsWith("lib") and (tok.contains("/") or tok.contains("$")):
-              let name = fname.replace(re"^lib", "")
-                              .replace(re"\.(a|so|dylib)(\.\d+)*$", "")
+              let name = fname.replace(re2"^lib", "")
+                              .replace(re2"\.(a|so|dylib)(\.\d+)*$", "")
               cleanedTokens.add("-l" & name)
             else:
               cleanedTokens.add(tok)
@@ -399,7 +405,7 @@ proc parsePrlFile*(filePath: string): QtModule =
   # feature define is QT_<MODULE>_LIB. `^Qt\d*` strips both the Android form
   # (Qt6Core) and the iOS framework form (QtCore, no version digits).
   let cleanName = cleanLibraryName(moduleInfo.name)
-  let moduleSuffix = cleanName.replace(re"^Qt\d*", "")
+  let moduleSuffix = cleanName.replace(re2"^Qt\d*", "")
   let includeSubdir = "Qt" & moduleSuffix
   let defineModuleName = moduleSuffix
 
