@@ -6,3 +6,5 @@ htmldocs/
 *.so
 *.dylib
 *.pc 
+nimble.develop
+nimble.paths
