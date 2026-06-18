@@ -1,0 +1,14 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: QtRemoteObjectsQml
+Description: QtRemoteObjectsQml module
+Version: 6.11.0
+Libs: -F${libdir} -framework QtRemoteObjectsQml ${prefix}/qml/QtRemoteObjects/objects-Debug/RemoteObjectsQml_resources_1/.qt/rcc/qrc_qmake_QtRemoteObjects_init.cpp.o ${libdir}/QtRemoteObjectsQml.framework/QtRemoteObjectsQml_debug -F${libdir} -framework QtGui -framework OpenGLES -framework ImageIO -framework CoreGraphics -framework Accelerate -framework QuartzCore -lQt6BundledHarfbuzz_debug -framework CoreText -lQt6BundledFreetype_debug -lQt6BundledLibpng_debug -framework Metal -framework QtRemoteObjects -framework QtQml -framework QtNetwork -framework QtCore -framework IOKit -framework Foundation -framework UniformTypeIdentifiers -lm -lQt6BundledPcre2_debug -framework MobileCoreServices -framework UIKit -framework CoreFoundation -framework Security -lz -framework CFNetwork -framework Network
+Cflags: -F${libdir} -I${includedir} -I${libdir}/QtRemoteObjectsQml.framework/Headers -DQT_REMOTEOBJECTSQML_LIB
+Requires: QtRemoteObjectsQml

@@ -1,0 +1,14 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: QtGraphsWidgets
+Description: QtGraphsWidgets module
+Version: 6.11.0
+Libs: -F${libdir} -framework QtGraphsWidgets ${prefix}/lib/objects-Debug/GraphsWidgets_resources_1/.qt/rcc/qrc_qml_for_widget_init.cpp.o ${prefix}/qml/QtGraphs/objects-Debug/Graphs_resources_1/.qt/rcc/qrc_qmake_QtGraphs_init.cpp.o ${prefix}/lib/objects-Debug/Graphs_resources_2/.qt/rcc/qrc_graphsshaders2D_init.cpp.o ${prefix}/lib/objects-Debug/Graphs_resources_3/.qt/rcc/qrc_graphsshaders_init.cpp.o ${prefix}/lib/objects-Debug/Graphs_resources_4/.qt/rcc/qrc_graphsmeshes_init.cpp.o ${prefix}/lib/objects-Debug/Graphs_resources_5/.qt/rcc/qrc_qml_component_resources_init.cpp.o ${prefix}/lib/objects-Debug/Graphs_resources_6/.qt/rcc/qrc_qml_axis_resources_init.cpp.o ${prefix}/lib/objects-Debug/Graphs_resources_7/.qt/rcc/qrc_qml_material_resources_init.cpp.o ${libdir}/QtGraphsWidgets.framework/QtGraphsWidgets_debug -L"/Users/qt/work/install/target/qml/QtQuick" -lqtquick2plugin_debug -L"/Users/qt/work/install/target/qml/QtQml" -lqmlplugin_debug -L"/Users/qt/work/install/target/qml/QtQml/Models" -lmodelsplugin_debug -L"/Users/qt/work/install/target/qml/QtQml/WorkerScript" -lworkerscriptplugin_debug -L"/Users/qt/work/qt/qtgraphs_build/target/qml/QtGraphs" -lgraphsplugin_debug -F${libdir} -framework QtQuickWidgets -framework QtWidgets -framework QtGraphs -framework QtQuickShapes -framework QtQuick3D -framework QtQuick3DRuntimeRender -framework QtQuick3DUtils -framework QtQuick -framework QtQmlMeta -framework QtQmlModels -framework QtQmlWorkerScript -framework QtOpenGL -framework QtShaderTools -framework QtGui -framework OpenGLES -framework ImageIO -framework CoreGraphics -framework Accelerate -framework QuartzCore -lQt6BundledHarfbuzz_debug -framework CoreText -lQt6BundledFreetype_debug -lQt6BundledLibpng_debug -framework Metal -lQt6BundledSpirv_Cross_debug -lQt6BundledGlslang_Glslang_debug -lQt6BundledGlslang_Spirv_debug -lQt6BundledGlslang_Osdependent_debug -framework QtQml -framework QtNetwork -framework Security -framework CFNetwork -framework Network -framework QtCore -lz -framework IOKit -framework CoreFoundation -framework Foundation -framework UniformTypeIdentifiers -lm -lQt6BundledPcre2_debug -framework MobileCoreServices -framework UIKit
+Cflags: -F${libdir} -I${includedir} -I${libdir}/QtGraphsWidgets.framework/Headers -DQT_GRAPHSWIDGETS_LIB
+Requires: QtGraphsWidgets

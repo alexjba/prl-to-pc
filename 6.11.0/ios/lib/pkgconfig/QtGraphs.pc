@@ -1,0 +1,14 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: QtGraphs
+Description: QtGraphs module
+Version: 6.11.0
+Libs: -F${libdir} -framework QtGraphs ${prefix}/qml/QtGraphs/objects-Release/Graphs_resources_1/.qt/rcc/qrc_qmake_QtGraphs_init.cpp.o ${prefix}/lib/objects-Release/Graphs_resources_2/.qt/rcc/qrc_graphsshaders2D_init.cpp.o ${prefix}/lib/objects-Release/Graphs_resources_3/.qt/rcc/qrc_graphsshaders_init.cpp.o ${prefix}/lib/objects-Release/Graphs_resources_4/.qt/rcc/qrc_graphsmeshes_init.cpp.o ${prefix}/lib/objects-Release/Graphs_resources_5/.qt/rcc/qrc_qml_component_resources_init.cpp.o ${prefix}/lib/objects-Release/Graphs_resources_6/.qt/rcc/qrc_qml_axis_resources_init.cpp.o ${prefix}/lib/objects-Release/Graphs_resources_7/.qt/rcc/qrc_qml_material_resources_init.cpp.o ${libdir}/QtGraphs.framework/QtGraphs -F${libdir} -framework QtQuickShapes -framework QtQuick3D -framework QtQuick3DRuntimeRender -framework QtQuick3DUtils -framework QtQuick -framework QtQmlMeta -framework QtQmlModels -framework QtQmlWorkerScript -framework QtOpenGL -framework QtShaderTools -framework QtGui -framework OpenGLES -framework ImageIO -framework CoreGraphics -framework Accelerate -framework QuartzCore -lQt6BundledHarfbuzz -framework CoreText -lQt6BundledFreetype -lQt6BundledLibpng -framework Metal -lQt6BundledSpirv_Cross -lQt6BundledGlslang_Glslang -lQt6BundledGlslang_Spirv -lQt6BundledGlslang_Osdependent -framework QtQml -framework QtNetwork -framework QtCore -framework IOKit -framework Foundation -framework UniformTypeIdentifiers -lm -lQt6BundledPcre2 -framework MobileCoreServices -framework UIKit -framework CoreFoundation -framework Security -lz -framework CFNetwork -framework Network
+Cflags: -F${libdir} -I${includedir} -I${libdir}/QtGraphs.framework/Headers -DQT_GRAPHS_LIB
+Requires: QtGraphs

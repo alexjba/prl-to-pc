@@ -1,0 +1,14 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: QtWidgets
+Description: QtWidgets module
+Version: 6.11.0
+Libs: -F${libdir} -framework QtWidgets ${prefix}/lib/objects-Debug/Widgets_resources_1/.qt/rcc/qrc_qstyle_init.cpp.o ${prefix}/lib/objects-Debug/Widgets_resources_2/.qt/rcc/qrc_qstyle1_init.cpp.o ${prefix}/lib/objects-Debug/Widgets_resources_3/.qt/rcc/qrc_qstyle_fusion_init.cpp.o ${prefix}/lib/objects-Debug/Widgets_resources_4/.qt/rcc/qrc_qmessagebox_init.cpp.o ${prefix}/lib/objects-Debug/Gui_resources_1/.qt/rcc/qrc_qpdf_init.cpp.o ${prefix}/lib/objects-Debug/Gui_resources_2/.qt/rcc/qrc_gui_shaders_init.cpp.o ${libdir}/QtWidgets.framework/QtWidgets_debug -F${libdir} -framework QtGui -framework QtCore -framework IOKit -framework UniformTypeIdentifiers -lm -lQt6BundledPcre2_debug -framework MobileCoreServices -framework OpenGLES -framework ImageIO -framework CoreFoundation -framework CoreGraphics -framework Accelerate -framework QuartzCore -framework Foundation -lQt6BundledHarfbuzz_debug -framework CoreText -framework UIKit -lQt6BundledFreetype_debug -lQt6BundledLibpng_debug -lz -framework Metal
+Cflags: -F${libdir} -I${includedir} -I${libdir}/QtWidgets.framework/Headers -DQT_WIDGETS_LIB
+Requires: QtWidgets

@@ -1,0 +1,14 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: QtHelp
+Description: QtHelp module
+Version: 6.11.0
+Libs: -F${libdir} -framework QtHelp ${prefix}/lib/objects-Release/Help_resources_1/.qt/rcc/qrc_helpsystem_init.cpp.o ${libdir}/QtHelp.framework/QtHelp -F${libdir} -framework QtSql -framework QtWidgets -framework QtGui -framework QtCore -framework IOKit -framework UniformTypeIdentifiers -lm -lQt6BundledPcre2 -framework MobileCoreServices -framework OpenGLES -framework ImageIO -framework CoreFoundation -framework CoreGraphics -framework Accelerate -framework QuartzCore -framework Foundation -lQt6BundledHarfbuzz -framework CoreText -framework UIKit -lQt6BundledFreetype -lQt6BundledLibpng -lz -framework Metal
+Cflags: -F${libdir} -I${includedir} -I${libdir}/QtHelp.framework/Headers -DQT_HELP_LIB
+Requires: QtHelp

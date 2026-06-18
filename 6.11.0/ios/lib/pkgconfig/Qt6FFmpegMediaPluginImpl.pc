@@ -1,0 +1,14 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: Qt6FFmpegMediaPluginImpl
+Description: Qt6FFmpegMediaPluginImpl module
+Version: 6.11.0
+Libs: -L${libdir} -lQt6FFmpegMediaPluginImpl ${prefix}/lib/objects-Release/Multimedia_resources_1/.qt/rcc/qrc_qtmultimedia_shaders_init.cpp.o ${prefix}/lib/objects-Release/Multimedia_resources_2/.qt/rcc/qrc_qtmultimedia_shaders_linear_init.cpp.o ${prefix}/lib/objects-Release/Multimedia_resources_3/.qt/rcc/qrc_qtmultimedia_shaders_gl_macos_init.cpp.o ${prefix}/lib/objects-Release/Multimedia_resources_4/.qt/rcc/qrc_qtmultimedia_shaders_gl_macos_linear_init.cpp.o -lQt6FFmpegMediaPluginImpl -F${libdir} -framework QtMultimedia -framework QtGui -framework OpenGLES -framework ImageIO -framework CoreGraphics -framework Accelerate -framework QuartzCore -lQt6BundledHarfbuzz -framework CoreText -lQt6BundledFreetype -lQt6BundledLibpng -framework Metal -lQt6BundledTLSF -framework QtConcurrent -framework QtNetwork -framework CFNetwork -framework Network -framework CoreAudio -framework QtCore -lz -framework IOKit -framework CoreFoundation -framework Foundation -framework UniformTypeIdentifiers -lm -lQt6BundledPcre2 -framework MobileCoreServices -framework UIKit -framework AudioToolbox -framework AVFoundation -framework CoreMedia -framework CoreVideo -framework Security
+Cflags: -F${libdir} -I${includedir} -I${libdir}/libQt6FFmpegMediaPluginImpl.a.framework/Headers -DQT_FFMPEGMEDIAPLUGINIMPL_LIB
+Requires: Qt6FFmpegMediaPluginImpl

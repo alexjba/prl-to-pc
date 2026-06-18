@@ -1,0 +1,13 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: QtProtobufQtGuiTypes
+Description: QtProtobufQtGuiTypes module
+Version: 6.11.0
+Libs: -F${libdir} -framework QtProtobufQtGuiTypes -F${libdir} -framework QtGui -framework OpenGLES -framework ImageIO -framework CoreGraphics -framework Accelerate -framework QuartzCore -lQt6BundledHarfbuzz -framework CoreText -lQt6BundledFreetype -lQt6BundledLibpng -framework Metal -framework QtProtobufQtCoreTypes -framework QtProtobuf -framework QtCore -lz -framework IOKit -framework CoreFoundation -framework Foundation -framework UniformTypeIdentifiers -lm -lQt6BundledPcre2 -framework MobileCoreServices -framework UIKit
+Cflags: -F${libdir} -I${includedir} -I${libdir}/QtProtobufQtGuiTypes.framework/Headers -DQT_PROTOBUFQTGUITYPES_LIB

@@ -1,0 +1,14 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: QtChartsQml
+Description: QtChartsQml module
+Version: 6.11.0
+Libs: -F${libdir} -framework QtChartsQml ${prefix}/qml/QtCharts/objects-Debug/ChartsQml_resources_1/.qt/rcc/qrc_qmake_QtCharts_init.cpp.o ${libdir}/QtChartsQml.framework/QtChartsQml_debug -F${libdir} -framework QtQuick -framework QtQmlMeta -framework QtQmlModels -framework QtQmlWorkerScript -framework QtCharts -framework QtOpenGLWidgets -framework QtWidgets -framework QtQml -framework QtNetwork -framework Security -framework CFNetwork -framework Network -framework QtOpenGL -framework QtGui -framework QtCore -framework IOKit -framework UniformTypeIdentifiers -lm -lQt6BundledPcre2_debug -framework MobileCoreServices -framework OpenGLES -framework ImageIO -framework CoreFoundation -framework CoreGraphics -framework Accelerate -framework QuartzCore -framework Foundation -lQt6BundledHarfbuzz_debug -framework CoreText -framework UIKit -lQt6BundledFreetype_debug -lQt6BundledLibpng_debug -lz -framework Metal
+Cflags: -F${libdir} -I${includedir} -I${libdir}/QtChartsQml.framework/Headers -DQT_CHARTSQML_LIB
+Requires: QtChartsQml

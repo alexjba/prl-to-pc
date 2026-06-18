@@ -1,0 +1,14 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: Qt6MultimediaTestLib_debug
+Description: Qt6MultimediaTestLib_debug module
+Version: 6.11.0
+Libs: -L${libdir} -lQt6MultimediaTestLib_debug ${prefix}/lib/objects-Debug/Multimedia_resources_1/.qt/rcc/qrc_qtmultimedia_shaders_init.cpp.o ${prefix}/lib/objects-Debug/Multimedia_resources_2/.qt/rcc/qrc_qtmultimedia_shaders_linear_init.cpp.o ${prefix}/lib/objects-Debug/Multimedia_resources_3/.qt/rcc/qrc_qtmultimedia_shaders_gl_macos_init.cpp.o ${prefix}/lib/objects-Debug/Multimedia_resources_4/.qt/rcc/qrc_qtmultimedia_shaders_gl_macos_linear_init.cpp.o -lQt6MultimediaTestLib_debug -F${libdir} -framework QtMultimedia -framework QtGui -framework OpenGLES -framework ImageIO -framework CoreGraphics -framework Accelerate -framework QuartzCore -lQt6BundledHarfbuzz_debug -framework CoreText -lQt6BundledFreetype_debug -lQt6BundledLibpng_debug -framework Metal -lQt6BundledTLSF_debug -framework QtConcurrent -framework QtNetwork -framework CFNetwork -framework Network -framework CoreAudio -framework AudioToolbox -framework CoreVideo -framework CoreMedia -framework AVFoundation -framework QtTest -framework QtCore -lz -framework IOKit -framework CoreFoundation -framework Foundation -framework UniformTypeIdentifiers -lm -lQt6BundledPcre2_debug -framework MobileCoreServices -framework UIKit -framework Security
+Cflags: -F${libdir} -I${includedir} -I${libdir}/libQt6MultimediaTestLib_debug.a.framework/Headers -DQT_MULTIMEDIATESTLIB_LIB
+Requires: Qt6MultimediaTestLib_debug

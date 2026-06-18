@@ -1,0 +1,13 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: QtTest
+Description: QtTest module
+Version: 6.11.0
+Libs: -L${libdir} -lQtTest -F${libdir} -framework QtCore -framework DiskArbitration -framework UniformTypeIdentifiers -framework Security -framework AppKit -framework ApplicationServices -framework Foundation -framework IOKit
+Cflags: -I${includedir} -I${includedir}/QtTest -DQT_TEST_LIB

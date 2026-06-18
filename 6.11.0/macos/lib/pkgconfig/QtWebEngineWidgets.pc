@@ -1,0 +1,13 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: QtWebEngineWidgets
+Description: QtWebEngineWidgets module
+Version: 6.11.0
+Libs: -L${libdir} -lQtWebEngineWidgets -F${libdir} -framework QtWebEngineCore -framework QtQuick -framework QtOpenGL -framework QtWebChannel -framework QtQml -framework QtNetwork -framework QtPositioning -framework QtPrintSupport -framework QtWidgets -framework QtGui -framework QtCore -framework IOKit -framework DiskArbitration -framework UniformTypeIdentifiers -framework AppKit -framework OpenGL -framework ImageIO -framework Metal -framework ApplicationServices -lcups
+Cflags: -I${includedir} -I${includedir}/QtWebEngineWidgets -DQT_WEBENGINEWIDGETS_LIB

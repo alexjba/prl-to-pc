@@ -77,7 +77,7 @@ import std/[os, strutils]
 stdout.write commandLineParams().join("|")
 """)
   let stubExe = tmp / "pkg-config" & exe
-  let (_, scode) = execCmdEx("nim c --hints:off -o:" & quoteShell(stubExe) & " " & quoteShell(stubSrc))
+  let (_, scode) = execCmdEx("nim c --hints:off --skipParentCfg:on -o:" & quoteShell(stubExe) & " " & quoteShell(stubSrc))
   require scode == 0
   require fileExists(stubExe)
 
@@ -87,11 +87,11 @@ stdout.write commandLineParams().join("|")
   let wrapExe = wrapDir / "pkg-config" & exe
   let here = currentSourcePath().parentDir()
   let wrapSrc = here.parentDir() / "src" / "pkgconfig_wrapper.nim"
-  let (_, wcode) = execCmdEx("nim c --hints:off -o:" & quoteShell(wrapExe) & " " & quoteShell(wrapSrc))
+  let (_, wcode) = execCmdEx("nim c --hints:off --skipParentCfg:on -o:" & quoteShell(wrapExe) & " " & quoteShell(wrapSrc))
   require wcode == 0
 
   test "wrapper runs the stub (not itself) and injects the override":
-    putEnv("PATH", wrapDir & $PathSep & tmp & $PathSep & getEnv("PATH"))
+    putEnv("PATH", wrapDir & $PathSep & tmp)
     putEnv(OverrideEnv, "Qt*=/qtprefix")
     delEnv("STATUS_PKGCONFIG_WRAP_ACTIVE")
     let (outp, code) = execCmdEx(quoteShell(wrapExe) & " --cflags Qt6Core")

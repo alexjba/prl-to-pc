@@ -1,0 +1,14 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: Qt6FbSupport_debug
+Description: Qt6FbSupport_debug module
+Version: 6.11.0
+Libs: -L${libdir} -lQt6FbSupport_debug ${prefix}/lib/objects-Debug/Gui_resources_1/.qt/rcc/qrc_qpdf_init.cpp.o ${prefix}/lib/objects-Debug/Gui_resources_2/.qt/rcc/qrc_gui_shaders_init.cpp.o -lQt6FbSupport_debug -F${libdir} -framework QtGui -framework QtCore -framework IOKit -framework UniformTypeIdentifiers -lm -lQt6BundledPcre2_debug -framework MobileCoreServices -framework OpenGLES -framework ImageIO -framework CoreFoundation -framework CoreGraphics -framework Accelerate -framework QuartzCore -framework Foundation -lQt6BundledHarfbuzz_debug -framework CoreText -framework UIKit -lQt6BundledFreetype_debug -lQt6BundledLibpng_debug -lz -framework Metal
+Cflags: -F${libdir} -I${includedir} -I${libdir}/libQt6FbSupport_debug.a.framework/Headers -DQT_FBSUPPORT_LIB
+Requires: Qt6FbSupport_debug

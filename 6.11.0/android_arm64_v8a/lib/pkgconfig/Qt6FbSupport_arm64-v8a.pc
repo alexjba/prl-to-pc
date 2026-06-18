@@ -1,0 +1,14 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: Qt6FbSupport_arm64-v8a
+Description: Qt6FbSupport_arm64-v8a module
+Version: 6.11.0
+Libs: -L${libdir} -lQt6FbSupport_arm64-v8a ${libdir}/libQt6Gui_arm64-v8a.so ${libdir}/libQt6Core_arm64-v8a.so -lGLESv2 -lEGL -llog -pthread
+Cflags: -I${includedir} -I${includedir}/QtFbSupport -DQT_FBSUPPORT_LIB
+Requires: Qt6Gui_arm64-v8a Qt6Core_arm64-v8a

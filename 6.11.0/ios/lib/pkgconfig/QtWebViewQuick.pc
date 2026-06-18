@@ -1,0 +1,14 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: QtWebViewQuick
+Description: QtWebViewQuick module
+Version: 6.11.0
+Libs: -F${libdir} -framework QtWebViewQuick ${prefix}/qml/QtWebView/objects-Debug/WebViewQuick_resources_1/.qt/rcc/qrc_qmake_QtWebView_init.cpp.o ${libdir}/QtWebViewQuick.framework/QtWebViewQuick_debug -F${libdir} -framework QtQuick -framework QtQmlMeta -framework QtQmlModels -framework QtQmlWorkerScript -framework QtWebView -framework QtQml -framework QtNetwork -framework Security -framework CFNetwork -framework Network -framework QtOpenGL -framework QtGui -framework QtCore -framework IOKit -framework UniformTypeIdentifiers -lm -lQt6BundledPcre2_debug -framework MobileCoreServices -framework OpenGLES -framework ImageIO -framework CoreFoundation -framework CoreGraphics -framework Accelerate -framework QuartzCore -framework Foundation -lQt6BundledHarfbuzz_debug -framework CoreText -framework UIKit -lQt6BundledFreetype_debug -lQt6BundledLibpng_debug -lz -framework Metal
+Cflags: -F${libdir} -I${includedir} -I${libdir}/QtWebViewQuick.framework/Headers -DQT_WEBVIEWQUICK_LIB
+Requires: QtWebViewQuick

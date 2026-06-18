@@ -1,0 +1,13 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: QtNetwork
+Description: QtNetwork module
+Version: 6.11.0
+Libs: -F${libdir} -framework QtNetwork -F${libdir} -framework QtCore -framework IOKit -framework Foundation -framework UniformTypeIdentifiers -lm -lQt6BundledPcre2 -framework MobileCoreServices -framework UIKit -framework CoreFoundation -framework Security -lz -framework CFNetwork -framework Network
+Cflags: -F${libdir} -I${includedir} -I${libdir}/QtNetwork.framework/Headers -DQT_NETWORK_LIB

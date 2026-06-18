@@ -1,0 +1,13 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: QtQuick3DUtils
+Description: QtQuick3DUtils module
+Version: 6.11.0
+Libs: -L${libdir} -lQtQuick3DUtils -F${libdir} -framework QtGui -framework QtCore -framework IOKit -framework DiskArbitration -framework UniformTypeIdentifiers -framework AppKit -framework OpenGL -framework ImageIO -framework Metal
+Cflags: -I${includedir} -I${includedir}/QtQuick3DUtils -DQT_QUICK3DUTILS_LIB

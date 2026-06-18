@@ -1,0 +1,13 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: QtTaskTree
+Description: QtTaskTree module
+Version: 6.11.0
+Libs: -F${libdir} -framework QtTaskTree -F${libdir} -framework QtConcurrent -framework QtNetwork -framework QtCore -framework IOKit -framework Foundation -framework UniformTypeIdentifiers -lm -lQt6BundledPcre2_debug -framework MobileCoreServices -framework UIKit -framework CoreFoundation -framework Security -lz -framework CFNetwork -framework Network
+Cflags: -F${libdir} -I${includedir} -I${libdir}/QtTaskTree.framework/Headers -DQT_TASKTREE_LIB

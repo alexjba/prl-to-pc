@@ -1,0 +1,14 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: Qt6QmlAssetDownloader_arm64-v8a
+Description: Qt6QmlAssetDownloader_arm64-v8a module
+Version: 6.11.0
+Libs: -L${libdir} -lQt6QmlAssetDownloader_arm64-v8a ${prefix}/qml/Qt/labs/assetdownloader/objects-RelWithDebInfo/QmlAssetDownloaderPrivate_resources_1/.qt/rcc/qrc_qmake_Qt_labs_assetdownloader_init.cpp.o -lQt6QmlAssetDownloader_arm64-v8a ${libdir}/libQt6TaskTree_arm64-v8a.so ${libdir}/libQt6Concurrent_arm64-v8a.so ${libdir}/libQt6Qml_arm64-v8a.so ${libdir}/libQt6Network_arm64-v8a.so ${libdir}/libQt6Core_arm64-v8a.so -llog -pthread
+Cflags: -I${includedir} -I${includedir}/QtQmlAssetDownloader -DQT_QMLASSETDOWNLOADER_LIB
+Requires: Qt6QmlAssetDownloader_arm64-v8a Qt6TaskTree_arm64-v8a Qt6Concurrent_arm64-v8a Qt6Qml_arm64-v8a Qt6Network_arm64-v8a Qt6Core_arm64-v8a

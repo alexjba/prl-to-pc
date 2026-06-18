@@ -1,0 +1,14 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: QtMultimediaQuick
+Description: QtMultimediaQuick module
+Version: 6.11.0
+Libs: -F${libdir} -framework QtMultimediaQuick ${prefix}/qml/QtMultimedia/objects-Release/MultimediaQuickPrivate_resources_1/.qt/rcc/qrc_qmake_QtMultimedia_init.cpp.o ${prefix}/qml/QtMultimedia/objects-Release/MultimediaQuickPrivate_resources_2/.qt/rcc/qrc_MultimediaQuickPrivate_raw_qml_0_init.cpp.o ${prefix}/lib/objects-Release/Multimedia_resources_1/.qt/rcc/qrc_qtmultimedia_shaders_init.cpp.o ${prefix}/lib/objects-Release/Multimedia_resources_2/.qt/rcc/qrc_qtmultimedia_shaders_linear_init.cpp.o ${prefix}/lib/objects-Release/Multimedia_resources_3/.qt/rcc/qrc_qtmultimedia_shaders_gl_macos_init.cpp.o ${prefix}/lib/objects-Release/Multimedia_resources_4/.qt/rcc/qrc_qtmultimedia_shaders_gl_macos_linear_init.cpp.o ${libdir}/QtMultimediaQuick.framework/QtMultimediaQuick -F${libdir} -framework QtMultimedia -lQt6BundledTLSF -framework QtConcurrent -framework CoreAudio -framework AudioToolbox -framework CoreVideo -framework CoreMedia -framework AVFoundation -framework QtQuick -framework QtQmlMeta -framework QtQmlModels -framework QtQmlWorkerScript -framework QtOpenGL -framework QtGui -framework OpenGLES -framework ImageIO -framework CoreGraphics -framework Accelerate -framework QuartzCore -lQt6BundledHarfbuzz -framework CoreText -lQt6BundledFreetype -lQt6BundledLibpng -framework Metal -framework QtQml -framework QtNetwork -framework Security -framework CFNetwork -framework Network -framework QtCore -lz -framework IOKit -framework CoreFoundation -framework Foundation -framework UniformTypeIdentifiers -lm -lQt6BundledPcre2 -framework MobileCoreServices -framework UIKit
+Cflags: -F${libdir} -I${includedir} -I${libdir}/QtMultimediaQuick.framework/Headers -DQT_MULTIMEDIAQUICK_LIB
+Requires: QtMultimediaQuick

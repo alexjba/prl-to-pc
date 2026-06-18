@@ -1,0 +1,13 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: Qt6WebEngineQuickDelegatesQml
+Description: Qt6WebEngineQuickDelegatesQml module
+Version: 6.11.0
+Libs: -F${libdir} -framework QtWebEngineQuickDelegatesQml
+Cflags: -F${libdir} -I${includedir} -I${libdir}/QtWebEngineQuickDelegatesQml.framework/Headers -DQT_WEBENGINEQUICKDELEGATESQML_LIB

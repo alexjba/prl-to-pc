@@ -1,0 +1,14 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: Qt6QmlFormat
+Description: Qt6QmlFormat module
+Version: 6.11.0
+Libs: -L${libdir} -lQt6QmlFormat -lQt6QmlDom -lQt6QmlToolingSettings -F${libdir} -framework QtQmlCompiler -framework QtQml -framework QtNetwork -lQt6QmlToolingSettings -framework QtCore -framework IOKit -framework DiskArbitration -framework UniformTypeIdentifiers
+Cflags: -I${includedir} -I${includedir}/QtQmlFormat -DQT_QMLFORMAT_LIB
+Requires: Qt6QmlDom Qt6QmlToolingSettings

@@ -1,0 +1,13 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: QtShaderTools
+Description: QtShaderTools module
+Version: 6.11.0
+Libs: -F${libdir} -framework QtShaderTools -F${libdir} -framework QtGui -framework QtCore -framework IOKit -framework UniformTypeIdentifiers -lm -lQt6BundledPcre2 -framework MobileCoreServices -framework OpenGLES -framework ImageIO -framework CoreFoundation -framework CoreGraphics -framework Accelerate -framework QuartzCore -framework Foundation -lQt6BundledHarfbuzz -framework CoreText -framework UIKit -lQt6BundledFreetype -lQt6BundledLibpng -lz -framework Metal -lQt6BundledSpirv_Cross -lQt6BundledGlslang_Glslang -lQt6BundledGlslang_Spirv -lQt6BundledGlslang_Osdependent
+Cflags: -F${libdir} -I${includedir} -I${libdir}/QtShaderTools.framework/Headers -DQT_SHADERTOOLS_LIB

@@ -1,0 +1,13 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: QtCore5Compat
+Description: QtCore5Compat module
+Version: 6.11.0
+Libs: -L${libdir} -lQtCore5Compat -F${libdir} -framework QtCore -framework IOKit -framework DiskArbitration -framework UniformTypeIdentifiers
+Cflags: -I${includedir} -I${includedir}/QtCore5Compat -DQT_CORE5COMPAT_LIB

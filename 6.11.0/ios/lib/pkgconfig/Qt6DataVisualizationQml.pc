@@ -1,0 +1,14 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: Qt6DataVisualizationQml
+Description: Qt6DataVisualizationQml module
+Version: 6.11.0
+Libs: -F${libdir} -framework QtDataVisualizationQml -framework QtNetwork -framework QtCore
+Cflags: -F${libdir} -I${includedir} -I${libdir}/QtDataVisualizationQml.framework/Headers -DQT_DATAVISUALIZATIONQML_LIB
+Requires: Qt6Network Qt6Core

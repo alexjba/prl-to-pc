@@ -1,0 +1,14 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: Qt6QuickControlsTestUtils
+Description: Qt6QuickControlsTestUtils module
+Version: 6.11.0
+Libs: -L${libdir} -lQt6QuickControlsTestUtils ${prefix}/qml/Qt/test/controls/objects-RelWithDebInfo/QuickControlsTestUtilsPrivate_resources_1/.qt/rcc/qrc_qmake_Qt_test_controls_init.cpp.o -lQt6QuickControlsTestUtils -F${libdir} -framework QtQuickControls2 -framework QtQuickTemplates2 -lQt6QuickTestUtils -framework QtQmlMeta -framework QtQmlModels -framework QtQmlWorkerScript -framework QtQuickTest -framework QtTest -framework Security -framework ApplicationServices -framework Foundation -framework QtQuickDialogs2QuickImpl -framework QtQuick -framework QtOpenGL -framework QtGui -framework AppKit -framework OpenGL -framework ImageIO -framework Metal -framework QtQml -framework QtNetwork -framework QtCore -framework IOKit -framework DiskArbitration -framework UniformTypeIdentifiers
+Cflags: -I${includedir} -I${includedir}/QtQuickControlsTestUtils -DQT_QUICKCONTROLSTESTUTILS_LIB
+Requires: Qt6QuickControlsTestUtils Qt6QuickTestUtils

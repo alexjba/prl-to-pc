@@ -1,0 +1,14 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: Qt6GrpcQuick
+Description: Qt6GrpcQuick module
+Version: 6.11.0
+Libs: -F${libdir} -framework QtGrpcQuick -framework QtQml -framework QtOpenGL -framework QtGui -framework QtNetwork -framework QtCore
+Cflags: -F${libdir} -I${includedir} -I${libdir}/QtGrpcQuick.framework/Headers -DQT_GRPCQUICK_LIB
+Requires: Qt6Qml Qt6OpenGL Qt6Gui Qt6Network Qt6Core

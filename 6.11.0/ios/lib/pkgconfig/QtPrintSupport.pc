@@ -1,0 +1,14 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: QtPrintSupport
+Description: QtPrintSupport module
+Version: 6.11.0
+Libs: -F${libdir} -framework QtPrintSupport ${prefix}/lib/objects-Release/PrintSupport_resources_1/.qt/rcc/qrc_qprintdialog_init.cpp.o ${prefix}/lib/objects-Release/PrintSupport_resources_2/.qt/rcc/qrc_qprintdialog1_init.cpp.o ${prefix}/lib/objects-Release/Widgets_resources_1/.qt/rcc/qrc_qstyle_init.cpp.o ${prefix}/lib/objects-Release/Widgets_resources_2/.qt/rcc/qrc_qstyle1_init.cpp.o ${prefix}/lib/objects-Release/Widgets_resources_3/.qt/rcc/qrc_qstyle_fusion_init.cpp.o ${prefix}/lib/objects-Release/Widgets_resources_4/.qt/rcc/qrc_qmessagebox_init.cpp.o ${prefix}/lib/objects-Release/Gui_resources_1/.qt/rcc/qrc_qpdf_init.cpp.o ${prefix}/lib/objects-Release/Gui_resources_2/.qt/rcc/qrc_gui_shaders_init.cpp.o ${libdir}/QtPrintSupport.framework/QtPrintSupport -F${libdir} -framework QtWidgets -framework QtGui -framework QtCore -framework IOKit -framework UniformTypeIdentifiers -lm -lQt6BundledPcre2 -framework MobileCoreServices -framework OpenGLES -framework ImageIO -framework CoreFoundation -framework CoreGraphics -framework Accelerate -framework QuartzCore -framework Foundation -lQt6BundledHarfbuzz -framework CoreText -framework UIKit -lQt6BundledFreetype -lQt6BundledLibpng -lz -framework Metal
+Cflags: -F${libdir} -I${includedir} -I${libdir}/QtPrintSupport.framework/Headers -DQT_PRINTSUPPORT_LIB
+Requires: QtPrintSupport

@@ -1,0 +1,14 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: Qt3DQuickScene3D
+Description: Qt3DQuickScene3D module
+Version: 6.11.0
+Libs: -F${libdir} -framework Qt3DQuickScene3D ${prefix}/qml/QtQuick/Scene3D/objects-Debug/3DQuickScene3D_resources_1/.qt/rcc/qrc_qmake_QtQuick_Scene3D_init.cpp.o ${prefix}/lib/objects-Debug/3DQuickScene3D_resources_2/.qt/rcc/qrc_scene3d_init.cpp.o ${prefix}/lib/objects-Debug/3DRender_resources_1/.qt/rcc/qrc_materialsystem_init.cpp.o ${libdir}/Qt3DQuickScene3D.framework/Qt3DQuickScene3D_debug -F${libdir} -framework QtQuick -framework QtQmlMeta -framework QtQmlModels -framework QtQmlWorkerScript -framework QtQml -framework Qt3DInput -framework Qt3DLogic -framework Qt3DAnimation -framework Qt3DRender -framework QtOpenGL -framework QtConcurrent -framework Qt3DCore -framework QtConcurrent -framework QtNetwork -framework Security -framework CFNetwork -framework Network -framework QtGui -framework QtCore -framework IOKit -framework UniformTypeIdentifiers -lm -lQt6BundledPcre2_debug -framework MobileCoreServices -framework OpenGLES -framework ImageIO -framework CoreFoundation -framework CoreGraphics -framework Accelerate -framework QuartzCore -framework Foundation -lQt6BundledHarfbuzz_debug -framework CoreText -framework UIKit -lQt6BundledFreetype_debug -lQt6BundledLibpng_debug -lz -framework Metal
+Cflags: -F${libdir} -I${includedir} -I${libdir}/Qt3DQuickScene3D.framework/Headers -DQT_DQUICKSCENE3D_LIB
+Requires: Qt3DQuickScene3D

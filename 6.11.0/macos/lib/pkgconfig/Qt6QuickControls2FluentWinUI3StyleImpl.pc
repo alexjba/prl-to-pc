@@ -1,0 +1,14 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: Qt6QuickControls2FluentWinUI3StyleImpl
+Description: Qt6QuickControls2FluentWinUI3StyleImpl module
+Version: 6.11.0
+Libs: -F${libdir} -framework QtQuickControls2FluentWinUI3StyleImpl -framework QtQml -framework QtOpenGL -framework QtGui -framework QtNetwork -framework QtCore
+Cflags: -F${libdir} -I${includedir} -I${libdir}/QtQuickControls2FluentWinUI3StyleImpl.framework/Headers -DQT_QUICKCONTROLS2FLUENTWINUI3STYLEIMPL_LIB
+Requires: Qt6Qml Qt6OpenGL Qt6Gui Qt6Network Qt6Core

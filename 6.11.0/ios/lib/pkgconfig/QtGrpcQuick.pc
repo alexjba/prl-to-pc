@@ -1,0 +1,14 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: QtGrpcQuick
+Description: QtGrpcQuick module
+Version: 6.11.0
+Libs: -F${libdir} -framework QtGrpcQuick ${prefix}/qml/QtGrpc/objects-Release/GrpcQuick_resources_1/.qt/rcc/qrc_qmake_QtGrpc_init.cpp.o ${libdir}/QtGrpcQuick.framework/QtGrpcQuick -F${libdir} -framework QtQuick -framework QtQmlMeta -framework QtQmlModels -framework QtQmlWorkerScript -framework QtOpenGL -framework QtGui -framework OpenGLES -framework ImageIO -framework CoreGraphics -framework Accelerate -framework QuartzCore -lQt6BundledHarfbuzz -framework CoreText -lQt6BundledFreetype -lQt6BundledLibpng -framework Metal -framework QtGrpc -framework QtProtobuf -framework QtQmlNetwork -framework QtQml -framework QtNetwork -framework QtCore -framework IOKit -framework Foundation -framework UniformTypeIdentifiers -lm -lQt6BundledPcre2 -framework MobileCoreServices -framework UIKit -framework CoreFoundation -framework Security -lz -framework CFNetwork -framework Network
+Cflags: -F${libdir} -I${includedir} -I${libdir}/QtGrpcQuick.framework/Headers -DQT_GRPCQUICK_LIB
+Requires: QtGrpcQuick

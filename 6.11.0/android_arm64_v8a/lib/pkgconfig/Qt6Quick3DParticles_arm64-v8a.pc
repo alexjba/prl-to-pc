@@ -1,0 +1,14 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: Qt6Quick3DParticles_arm64-v8a
+Description: Qt6Quick3DParticles_arm64-v8a module
+Version: 6.11.0
+Libs: -L${libdir} -lQt6Quick3DParticles_arm64-v8a -lQt6Quick3DAssetImport_arm64-v8a -lQt6Quick3D_arm64-v8a -lQt6Quick3DRuntimeRender_arm64-v8a -lQt6Quick_arm64-v8a -lQt6OpenGL_arm64-v8a -lQt6Qml_arm64-v8a -lQt6Network_arm64-v8a -lQt6Quick3DUtils_arm64-v8a -lQt6ShaderTools_arm64-v8a -lQt6Gui_arm64-v8a -lQt6Core_arm64-v8a -llog -pthread -lGLESv2 -lEGL
+Cflags: -I${includedir} -I${includedir}/QtQuick3DParticles -DQT_QUICK3DPARTICLES_LIB
+Requires: Qt6Quick3DAssetImport_arm64-v8a Qt6Quick3D_arm64-v8a Qt6Quick3DRuntimeRender_arm64-v8a Qt6Quick_arm64-v8a Qt6OpenGL_arm64-v8a Qt6Qml_arm64-v8a Qt6Network_arm64-v8a Qt6Quick3DUtils_arm64-v8a Qt6ShaderTools_arm64-v8a Qt6Gui_arm64-v8a Qt6Core_arm64-v8a

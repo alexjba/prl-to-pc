@@ -1,0 +1,14 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: Qt6RemoteObjectsQml_arm64-v8a
+Description: Qt6RemoteObjectsQml_arm64-v8a module
+Version: 6.11.0
+Libs: -L${libdir} -lQt6RemoteObjectsQml_arm64-v8a -lQt6Gui_arm64-v8a -lGLESv2 -lEGL -lQt6Qml_arm64-v8a -lQt6RemoteObjects_arm64-v8a -lQt6Network_arm64-v8a -lQt6Core_arm64-v8a -llog -pthread
+Cflags: -I${includedir} -I${includedir}/QtRemoteObjectsQml -DQT_REMOTEOBJECTSQML_LIB
+Requires: Qt6Gui_arm64-v8a Qt6Qml_arm64-v8a Qt6RemoteObjects_arm64-v8a Qt6Network_arm64-v8a Qt6Core_arm64-v8a

@@ -1,0 +1,14 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: QtVirtualKeyboardQml
+Description: QtVirtualKeyboardQml module
+Version: 6.11.0
+Libs: -F${libdir} -framework QtVirtualKeyboardQml ${prefix}/qml/QtQuick/VirtualKeyboard/objects-Release/VirtualKeyboardQml_resources_1/.qt/rcc/qrc_qmake_QtQuick_VirtualKeyboard_init.cpp.o ${prefix}/qml/QtQuick/VirtualKeyboard/objects-Release/VirtualKeyboardQml_resources_2/.qt/rcc/qrc_VirtualKeyboardQml_raw_qml_0_init.cpp.o ${prefix}/qml/QtQuick/VirtualKeyboard/Core/objects-Release/VirtualKeyboard_resources_1/.qt/rcc/qrc_qmake_QtQuick_VirtualKeyboard_Core_init.cpp.o ${libdir}/QtVirtualKeyboardQml.framework/QtVirtualKeyboardQml -F${libdir} -framework QtVirtualKeyboard -framework QtQuick -framework QtQmlMeta -framework QtQmlModels -framework QtQmlWorkerScript -framework QtOpenGL -framework QtGui -framework OpenGLES -framework ImageIO -framework CoreGraphics -framework Accelerate -framework QuartzCore -lQt6BundledHarfbuzz -framework CoreText -lQt6BundledFreetype -lQt6BundledLibpng -framework Metal -framework QtQml -framework QtNetwork -framework Security -framework CFNetwork -framework Network -framework QtCore -lz -framework IOKit -framework CoreFoundation -framework Foundation -framework UniformTypeIdentifiers -lm -lQt6BundledPcre2 -framework MobileCoreServices -framework UIKit
+Cflags: -F${libdir} -I${includedir} -I${libdir}/QtVirtualKeyboardQml.framework/Headers -DQT_VIRTUALKEYBOARDQML_LIB
+Requires: QtVirtualKeyboardQml

@@ -1,0 +1,14 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: Qt6RemoteObjects
+Description: Qt6RemoteObjects module
+Version: 6.11.0
+Libs: -F${libdir} -framework QtRemoteObjects -framework QtCore
+Cflags: -F${libdir} -I${includedir} -I${libdir}/QtRemoteObjects.framework/Headers -DQT_REMOTEOBJECTS_LIB
+Requires: Qt6Core

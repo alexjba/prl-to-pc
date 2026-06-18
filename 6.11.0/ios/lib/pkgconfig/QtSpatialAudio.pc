@@ -1,0 +1,14 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: QtSpatialAudio
+Description: QtSpatialAudio module
+Version: 6.11.0
+Libs: -F${libdir} -framework QtSpatialAudio ${prefix}/lib/objects-Release/Multimedia_resources_1/.qt/rcc/qrc_qtmultimedia_shaders_init.cpp.o ${prefix}/lib/objects-Release/Multimedia_resources_2/.qt/rcc/qrc_qtmultimedia_shaders_linear_init.cpp.o ${prefix}/lib/objects-Release/Multimedia_resources_3/.qt/rcc/qrc_qtmultimedia_shaders_gl_macos_init.cpp.o ${prefix}/lib/objects-Release/Multimedia_resources_4/.qt/rcc/qrc_qtmultimedia_shaders_gl_macos_linear_init.cpp.o ${libdir}/QtSpatialAudio.framework/QtSpatialAudio -F${libdir} -framework QtMultimedia -framework QtGui -framework OpenGLES -framework ImageIO -framework CoreGraphics -framework Accelerate -framework QuartzCore -lQt6BundledHarfbuzz -framework CoreText -lQt6BundledFreetype -lQt6BundledLibpng -framework Metal -lQt6BundledTLSF -framework QtConcurrent -framework QtNetwork -framework QtCore -framework IOKit -framework UniformTypeIdentifiers -lm -lQt6BundledPcre2 -framework MobileCoreServices -framework UIKit -framework CoreFoundation -framework Security -lz -framework CFNetwork -framework Network -framework CoreAudio -framework AudioToolbox -framework CoreVideo -framework CoreMedia -framework AVFoundation -framework Foundation -lQt6BundledResonanceAudio
+Cflags: -F${libdir} -I${includedir} -I${libdir}/QtSpatialAudio.framework/Headers -DQT_SPATIALAUDIO_LIB
+Requires: QtSpatialAudio

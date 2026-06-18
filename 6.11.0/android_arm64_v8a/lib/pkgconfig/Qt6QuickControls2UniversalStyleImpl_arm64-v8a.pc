@@ -1,0 +1,13 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: Qt6QuickControls2UniversalStyleImpl_arm64-v8a
+Description: Qt6QuickControls2UniversalStyleImpl_arm64-v8a module
+Version: 6.11.0
+Libs: -L${libdir} -lQt6QuickControls2UniversalStyleImpl_arm64-v8a
+Cflags: -I${includedir} -I${includedir}/QtQuickControls2UniversalStyleImpl -DQT_QUICKCONTROLS2UNIVERSALSTYLEIMPL_LIB

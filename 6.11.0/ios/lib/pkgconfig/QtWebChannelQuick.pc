@@ -1,0 +1,14 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: QtWebChannelQuick
+Description: QtWebChannelQuick module
+Version: 6.11.0
+Libs: -F${libdir} -framework QtWebChannelQuick ${prefix}/qml/QtWebChannel/objects-Debug/WebChannelQuick_resources_1/.qt/rcc/qrc_qmake_QtWebChannel_init.cpp.o ${prefix}/lib/objects-Debug/WebChannel_resources_1/.qt/rcc/qrc_resources_init.cpp.o ${libdir}/QtWebChannelQuick.framework/QtWebChannelQuick_debug -F${libdir} -framework QtWebChannel -framework QtQml -framework QtNetwork -framework QtCore -framework IOKit -framework Foundation -framework UniformTypeIdentifiers -lm -lQt6BundledPcre2_debug -framework MobileCoreServices -framework UIKit -framework CoreFoundation -framework Security -lz -framework CFNetwork -framework Network
+Cflags: -F${libdir} -I${includedir} -I${libdir}/QtWebChannelQuick.framework/Headers -DQT_WEBCHANNELQUICK_LIB
+Requires: QtWebChannelQuick

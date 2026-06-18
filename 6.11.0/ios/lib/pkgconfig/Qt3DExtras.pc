@@ -1,0 +1,14 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: Qt3DExtras
+Description: Qt3DExtras module
+Version: 6.11.0
+Libs: -F${libdir} -framework Qt3DExtras ${prefix}/lib/objects-Debug/3DExtras_resources_1/.qt/rcc/qrc_extras_init.cpp.o ${prefix}/lib/objects-Debug/3DRender_resources_1/.qt/rcc/qrc_materialsystem_init.cpp.o ${libdir}/Qt3DExtras.framework/Qt3DExtras_debug -F${libdir} -framework Qt3DInput -framework Qt3DLogic -framework Qt3DRender -framework QtOpenGL -framework QtConcurrent -framework Qt3DCore -framework QtConcurrent -framework QtNetwork -framework Security -framework CFNetwork -framework Network -framework QtGui -framework OpenGLES -framework ImageIO -framework CoreGraphics -framework Accelerate -framework QuartzCore -lQt6BundledHarfbuzz_debug -framework CoreText -lQt6BundledFreetype_debug -lQt6BundledLibpng_debug -framework Metal -framework QtCore -lz -framework IOKit -framework CoreFoundation -framework Foundation -framework UniformTypeIdentifiers -lm -lQt6BundledPcre2_debug -framework MobileCoreServices -framework UIKit
+Cflags: -F${libdir} -I${includedir} -I${libdir}/Qt3DExtras.framework/Headers -DQT_DEXTRAS_LIB
+Requires: Qt3DExtras

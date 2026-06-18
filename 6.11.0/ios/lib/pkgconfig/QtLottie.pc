@@ -1,0 +1,14 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: QtLottie
+Description: QtLottie module
+Version: 6.11.0
+Libs: -F${libdir} -framework QtLottie ${prefix}/qml/Qt/labs/lottieqt/objects-Release/Lottie_resources_1/.qt/rcc/qrc_qmake_Qt_labs_lottieqt_init.cpp.o ${libdir}/QtLottie.framework/QtLottie -F${libdir} -framework QtQuick -framework QtQmlMeta -framework QtQmlModels -framework QtQmlWorkerScript -framework QtOpenGL -framework QtGui -framework OpenGLES -framework ImageIO -framework CoreGraphics -framework Accelerate -framework QuartzCore -lQt6BundledHarfbuzz -framework CoreText -lQt6BundledFreetype -lQt6BundledLibpng -framework Metal -framework QtQml -framework QtNetwork -framework QtCore -framework IOKit -framework Foundation -framework UniformTypeIdentifiers -lm -lQt6BundledPcre2 -framework MobileCoreServices -framework UIKit -framework CoreFoundation -framework Security -lz -framework CFNetwork -framework Network
+Cflags: -F${libdir} -I${includedir} -I${libdir}/QtLottie.framework/Headers -DQT_LOTTIE_LIB
+Requires: QtLottie

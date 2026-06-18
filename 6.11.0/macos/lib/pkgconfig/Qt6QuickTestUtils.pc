@@ -1,0 +1,13 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: Qt6QuickTestUtils
+Description: Qt6QuickTestUtils module
+Version: 6.11.0
+Libs: -L${libdir} -lQt6QuickTestUtils -F${libdir} -framework QtQmlMeta -framework QtQmlModels -framework QtQmlWorkerScript -framework QtQuick -framework QtOpenGL -framework QtGui -framework OpenGL -framework ImageIO -framework Metal -framework QtQml -framework QtNetwork -framework QtQuickTest -framework QtTest -framework QtCore -framework DiskArbitration -framework UniformTypeIdentifiers -framework Security -framework AppKit -framework ApplicationServices -framework Foundation -framework IOKit
+Cflags: -I${includedir} -I${includedir}/QtQuickTestUtils -DQT_QUICKTESTUTILS_LIB

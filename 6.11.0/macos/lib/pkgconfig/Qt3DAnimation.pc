@@ -1,0 +1,13 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: Qt3DAnimation
+Description: Qt3DAnimation module
+Version: 6.11.0
+Libs: -L${libdir} -lQt3DAnimation -F${libdir} -framework Qt3DRender -framework Qt3DCore -framework QtConcurrent -framework QtNetwork -framework QtOpenGL -framework QtGui -framework QtCore -framework IOKit -framework DiskArbitration -framework UniformTypeIdentifiers -framework AppKit -framework OpenGL -framework ImageIO -framework Metal
+Cflags: -I${includedir} -I${includedir}/QtDAnimation -DQT_DANIMATION_LIB

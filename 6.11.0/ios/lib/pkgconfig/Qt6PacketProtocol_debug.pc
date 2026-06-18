@@ -1,0 +1,13 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: Qt6PacketProtocol_debug
+Description: Qt6PacketProtocol_debug module
+Version: 6.11.0
+Libs: -L${libdir} -lQt6PacketProtocol_debug -F${libdir} -framework QtCore -lz -framework IOKit -framework CoreFoundation -framework Foundation -framework UniformTypeIdentifiers -lm -lQt6BundledPcre2_debug -framework MobileCoreServices -framework UIKit
+Cflags: -F${libdir} -I${includedir} -I${libdir}/libQt6PacketProtocol_debug.a.framework/Headers -DQT_PACKETPROTOCOL_LIB

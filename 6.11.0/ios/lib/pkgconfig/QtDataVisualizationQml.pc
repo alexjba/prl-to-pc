@@ -1,0 +1,14 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: QtDataVisualizationQml
+Description: QtDataVisualizationQml module
+Version: 6.11.0
+Libs: -F${libdir} -framework QtDataVisualizationQml ${prefix}/qml/QtDataVisualization/objects-Release/DataVisualizationQml_resources_1/.qt/rcc/qrc_qmake_QtDataVisualization_init.cpp.o ${prefix}/qml/QtDataVisualization/objects-Release/DataVisualizationQml_resources_2/.qt/rcc/qrc_DataVisualizationQml_raw_qml_0_init.cpp.o ${prefix}/qml/QtDataVisualization/objects-Release/DataVisualizationQml_resources_3/.qt/rcc/qrc_DataVisualizationQml_raw_res_0_init.cpp.o ${prefix}/lib/objects-Release/DataVisualization_resources_1/.qt/rcc/qrc_datavisualizationshaders_init.cpp.o ${prefix}/lib/objects-Release/DataVisualization_resources_2/.qt/rcc/qrc_datavisualizationmeshes_init.cpp.o ${libdir}/QtDataVisualizationQml.framework/QtDataVisualizationQml -F${libdir} -framework QtQuick -framework QtQmlMeta -framework QtQmlModels -framework QtQmlWorkerScript -framework QtDataVisualization -framework QtOpenGL -framework QtGui -framework OpenGLES -framework ImageIO -framework CoreGraphics -framework Accelerate -framework QuartzCore -lQt6BundledHarfbuzz -framework CoreText -lQt6BundledFreetype -lQt6BundledLibpng -framework Metal -framework QtQml -framework QtNetwork -framework Security -framework CFNetwork -framework Network -framework QtCore -lz -framework IOKit -framework CoreFoundation -framework Foundation -framework UniformTypeIdentifiers -lm -lQt6BundledPcre2 -framework MobileCoreServices -framework UIKit
+Cflags: -F${libdir} -I${includedir} -I${libdir}/QtDataVisualizationQml.framework/Headers -DQT_DATAVISUALIZATIONQML_LIB
+Requires: QtDataVisualizationQml

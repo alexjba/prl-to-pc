@@ -1,0 +1,13 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: QtQuickControls2Basic
+Description: QtQuickControls2Basic module
+Version: 6.11.0
+Libs: -L${libdir} -lQtQuickControls2Basic
+Cflags: -I${includedir} -I${includedir}/QtQuickControls2Basic -DQT_QUICKCONTROLS2BASIC_LIB

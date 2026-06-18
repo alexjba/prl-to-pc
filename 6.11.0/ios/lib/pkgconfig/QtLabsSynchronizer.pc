@@ -1,0 +1,14 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: QtLabsSynchronizer
+Description: QtLabsSynchronizer module
+Version: 6.11.0
+Libs: -F${libdir} -framework QtLabsSynchronizer ${prefix}/qml/Qt/labs/synchronizer/objects-Release/LabsSynchronizer_resources_1/.qt/rcc/qrc_qmake_Qt_labs_synchronizer_init.cpp.o ${prefix}/qml/QML/objects-Release/Qml_resources_1/.qt/rcc/qrc_qmake_QML_init.cpp.o ${libdir}/QtLabsSynchronizer.framework/QtLabsSynchronizer -F${libdir} -framework QtQml -framework QtNetwork -framework QtCore -framework IOKit -framework Foundation -framework UniformTypeIdentifiers -lm -lQt6BundledPcre2 -framework MobileCoreServices -framework UIKit -framework CoreFoundation -framework Security -lz -framework CFNetwork -framework Network
+Cflags: -F${libdir} -I${includedir} -I${libdir}/QtLabsSynchronizer.framework/Headers -DQT_LABSSYNCHRONIZER_LIB
+Requires: QtLabsSynchronizer

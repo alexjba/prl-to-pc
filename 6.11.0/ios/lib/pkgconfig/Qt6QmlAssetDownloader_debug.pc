@@ -1,0 +1,14 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: Qt6QmlAssetDownloader_debug
+Description: Qt6QmlAssetDownloader_debug module
+Version: 6.11.0
+Libs: -L${libdir} -lQt6QmlAssetDownloader_debug ${prefix}/qml/Qt/labs/assetdownloader/objects-Debug/QmlAssetDownloaderPrivate_resources_1/.qt/rcc/qrc_qmake_Qt_labs_assetdownloader_init.cpp.o -lQt6QmlAssetDownloader_debug -F${libdir} -framework QtTaskTree -framework QtConcurrent -framework QtQml -framework QtNetwork -framework QtCore -framework IOKit -framework Foundation -framework UniformTypeIdentifiers -lm -lQt6BundledPcre2_debug -framework MobileCoreServices -framework UIKit -framework CoreFoundation -framework Security -lz -framework CFNetwork -framework Network
+Cflags: -F${libdir} -I${includedir} -I${libdir}/libQt6QmlAssetDownloader_debug.a.framework/Headers -DQT_QMLASSETDOWNLOADER_LIB
+Requires: Qt6QmlAssetDownloader_debug

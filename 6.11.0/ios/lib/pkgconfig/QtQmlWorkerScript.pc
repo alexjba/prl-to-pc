@@ -1,0 +1,14 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: QtQmlWorkerScript
+Description: QtQmlWorkerScript module
+Version: 6.11.0
+Libs: -F${libdir} -framework QtQmlWorkerScript ${prefix}/qml/QtQml/WorkerScript/objects-Release/QmlWorkerScript_resources_1/.qt/rcc/qrc_qmake_QtQml_WorkerScript_init.cpp.o ${prefix}/qml/QML/objects-Release/Qml_resources_1/.qt/rcc/qrc_qmake_QML_init.cpp.o ${libdir}/QtQmlWorkerScript.framework/QtQmlWorkerScript -F${libdir} -framework QtQml -framework QtNetwork -framework QtCore -framework IOKit -framework Foundation -framework UniformTypeIdentifiers -lm -lQt6BundledPcre2 -framework MobileCoreServices -framework UIKit -framework CoreFoundation -framework Security -lz -framework CFNetwork -framework Network
+Cflags: -F${libdir} -I${includedir} -I${libdir}/QtQmlWorkerScript.framework/Headers -DQT_QMLWORKERSCRIPT_LIB
+Requires: QtQmlWorkerScript

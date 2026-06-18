@@ -1,6 +1,13 @@
 nimcache/
 nimblecache/
 htmldocs/
+# built tools (wrapper + generator) produced by qt-pkgconfig.mk
+.pcwrap/
+/pkg-config
+/prl_to_pc
+# compiled test binaries (nim emits an extension-less exe next to the .nim)
+tests/test_pkgconfig_wrapper
+tests/test_committed_pc_compile
 *.exe
 *.dll
 *.so

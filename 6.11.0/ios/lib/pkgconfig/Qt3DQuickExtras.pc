@@ -1,0 +1,14 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: Qt3DQuickExtras
+Description: Qt3DQuickExtras module
+Version: 6.11.0
+Libs: -F${libdir} -framework Qt3DQuickExtras ${prefix}/qml/Qt3D/Extras/objects-Release/3DQuickExtras_resources_1/.qt/rcc/qrc_qmake_Qt3D_Extras_init.cpp.o ${prefix}/lib/objects-Release/3DExtras_resources_1/.qt/rcc/qrc_extras_init.cpp.o ${prefix}/qml/Qt3D/Core/objects-Release/3DQuick_resources_1/.qt/rcc/qrc_qmake_Qt3D_Core_init.cpp.o ${prefix}/lib/objects-Release/3DRender_resources_1/.qt/rcc/qrc_materialsystem_init.cpp.o ${libdir}/Qt3DQuickExtras.framework/Qt3DQuickExtras -F${libdir} -framework Qt3DExtras -framework Qt3DInput -framework Qt3DLogic -framework Qt3DQuick -framework QtQuick -framework QtQmlMeta -framework QtQmlModels -framework QtQmlWorkerScript -framework Qt3DRender -framework QtOpenGL -framework QtConcurrent -framework Qt3DCore -framework QtConcurrent -framework QtGui -framework OpenGLES -framework ImageIO -framework CoreGraphics -framework Accelerate -framework QuartzCore -lQt6BundledHarfbuzz -framework CoreText -lQt6BundledFreetype -lQt6BundledLibpng -framework Metal -framework QtQml -framework QtNetwork -framework QtCore -framework IOKit -framework Foundation -framework UniformTypeIdentifiers -lm -lQt6BundledPcre2 -framework MobileCoreServices -framework UIKit -framework CoreFoundation -framework Security -lz -framework CFNetwork -framework Network
+Cflags: -F${libdir} -I${includedir} -I${libdir}/Qt3DQuickExtras.framework/Headers -DQT_DQUICKEXTRAS_LIB
+Requires: Qt3DQuickExtras

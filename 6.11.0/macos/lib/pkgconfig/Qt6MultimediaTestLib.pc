@@ -1,0 +1,13 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: Qt6MultimediaTestLib
+Description: Qt6MultimediaTestLib module
+Version: 6.11.0
+Libs: -L${libdir} -lQt6MultimediaTestLib -F${libdir} -framework QtMultimedia -framework QtGui -framework OpenGL -framework ImageIO -framework Metal -framework QtNetwork -framework QtTest -framework QtCore -framework DiskArbitration -framework UniformTypeIdentifiers -framework Security -framework AppKit -framework ApplicationServices -framework Foundation -framework IOKit
+Cflags: -I${includedir} -I${includedir}/QtMultimediaTestLib -DQT_MULTIMEDIATESTLIB_LIB

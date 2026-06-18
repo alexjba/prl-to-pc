@@ -1,0 +1,13 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: QtCharts
+Description: QtCharts module
+Version: 6.11.0
+Libs: -F${libdir} -framework QtCharts -F${libdir} -framework QtOpenGLWidgets -framework QtOpenGL -framework QtWidgets -framework QtGui -framework QtCore -framework IOKit -framework UniformTypeIdentifiers -lm -lQt6BundledPcre2 -framework MobileCoreServices -framework OpenGLES -framework ImageIO -framework CoreFoundation -framework CoreGraphics -framework Accelerate -framework QuartzCore -framework Foundation -lQt6BundledHarfbuzz -framework CoreText -framework UIKit -lQt6BundledFreetype -lQt6BundledLibpng -lz -framework Metal
+Cflags: -F${libdir} -I${includedir} -I${libdir}/QtCharts.framework/Headers -DQT_CHARTS_LIB

@@ -1,0 +1,13 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: Qt6FFmpegMediaPluginImpl
+Description: Qt6FFmpegMediaPluginImpl module
+Version: 6.11.0
+Libs: -L${libdir} -lQt6FFmpegMediaPluginImpl -F${libdir} -framework QtMultimedia -framework QtGui -framework OpenGL -framework ImageIO -framework Metal -framework QtNetwork -framework QtCore -framework IOKit -framework DiskArbitration -framework UniformTypeIdentifiers -framework AudioToolbox -framework AVFoundation -framework CoreMedia -framework CoreVideo -framework Security -framework AppKit libavformat.dylib libavcodec.dylib libswresample.dylib libswscale.dylib libavutil.dylib
+Cflags: -I${includedir} -I${includedir}/QtFFmpegMediaPluginImpl -DQT_FFMPEGMEDIAPLUGINIMPL_LIB

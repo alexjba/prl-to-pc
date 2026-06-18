@@ -1,0 +1,14 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: Qt63DQuickScene2D
+Description: Qt63DQuickScene2D module
+Version: 6.11.0
+Libs: -F${libdir} -framework Qt3DQuickScene2D -framework QtQml -framework QtOpenGL -framework QtGui -framework QtNetwork -framework QtCore
+Cflags: -F${libdir} -I${includedir} -I${libdir}/Qt3DQuickScene2D.framework/Headers -DQT_3DQUICKSCENE2D_LIB
+Requires: Qt6Qml Qt6OpenGL Qt6Gui Qt6Network Qt6Core

@@ -1,0 +1,14 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: Qt6QmlTypeRegistrar_debug
+Description: Qt6QmlTypeRegistrar_debug module
+Version: 6.11.0
+Libs: -L${libdir} -lQt6QmlTypeRegistrar_debug ${prefix}/lib/objects-Debug/QmlTypeRegistrarPrivate_resources_1/.qt/rcc/qrc_jsRootMetaTypes_init.cpp.o -lQt6QmlTypeRegistrar_debug -F${libdir} -framework QtCore -lz -framework IOKit -framework CoreFoundation -framework Foundation -framework UniformTypeIdentifiers -lm -lQt6BundledPcre2_debug -framework MobileCoreServices -framework UIKit
+Cflags: -F${libdir} -I${includedir} -I${libdir}/libQt6QmlTypeRegistrar_debug.a.framework/Headers -DQT_QMLTYPEREGISTRAR_LIB
+Requires: Qt6QmlTypeRegistrar_debug

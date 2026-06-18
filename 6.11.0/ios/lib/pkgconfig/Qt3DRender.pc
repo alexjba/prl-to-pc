@@ -1,0 +1,14 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: Qt3DRender
+Description: Qt3DRender module
+Version: 6.11.0
+Libs: -F${libdir} -framework Qt3DRender ${prefix}/lib/objects-Release/3DRender_resources_1/.qt/rcc/qrc_materialsystem_init.cpp.o ${libdir}/Qt3DRender.framework/Qt3DRender -F${libdir} -framework QtOpenGL -framework QtConcurrent -framework Qt3DCore -framework QtConcurrent -framework QtNetwork -framework Security -framework CFNetwork -framework Network -framework QtGui -framework QtCore -framework IOKit -framework UniformTypeIdentifiers -lm -lQt6BundledPcre2 -framework MobileCoreServices -framework OpenGLES -framework ImageIO -framework CoreFoundation -framework CoreGraphics -framework Accelerate -framework QuartzCore -framework Foundation -lQt6BundledHarfbuzz -framework CoreText -framework UIKit -lQt6BundledFreetype -lQt6BundledLibpng -lz -framework Metal
+Cflags: -F${libdir} -I${includedir} -I${libdir}/Qt3DRender.framework/Headers -DQT_DRENDER_LIB
+Requires: Qt3DRender

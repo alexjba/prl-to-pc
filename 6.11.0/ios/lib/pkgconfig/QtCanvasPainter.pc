@@ -1,0 +1,14 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: QtCanvasPainter
+Description: QtCanvasPainter module
+Version: 6.11.0
+Libs: -F${libdir} -framework QtCanvasPainter ${prefix}/lib/objects-Release/CanvasPainter_resources_1/.qt/rcc/qrc_qcshaders_init.cpp.o ${prefix}/lib/objects-Release/CanvasPainter_resources_2/.qt/rcc/qrc_qcshaders_v_custommatrix_init.cpp.o ${prefix}/lib/objects-Release/CanvasPainter_resources_3/.qt/rcc/qrc_qcshaders_t_init.cpp.o ${prefix}/lib/objects-Release/CanvasPainter_resources_4/.qt/rcc/qrc_qcshaders_aa_init.cpp.o ${prefix}/lib/objects-Release/CanvasPainter_resources_5/.qt/rcc/qrc_qcshaders_aat_init.cpp.o ${prefix}/lib/objects-Release/CanvasPainter_resources_6/.qt/rcc/qrc_qcshaders_sc_init.cpp.o ${prefix}/lib/objects-Release/CanvasPainter_resources_7/.qt/rcc/qrc_qcshaders_sct_init.cpp.o ${prefix}/lib/objects-Release/CanvasPainter_resources_8/.qt/rcc/qrc_qcshaders_aass_init.cpp.o ${prefix}/lib/objects-Release/CanvasPainter_resources_9/.qt/rcc/qrc_qcshaders_aasst_init.cpp.o ${prefix}/lib/objects-Release/CanvasPainter_resources_10/.qt/rcc/qrc_qcshaders_aasc_init.cpp.o ${prefix}/lib/objects-Release/CanvasPainter_resources_11/.qt/rcc/qrc_qcshaders_aasct_init.cpp.o ${prefix}/lib/objects-Release/CanvasPainter_resources_12/.qt/rcc/qrc_qcshaders_aasssc_init.cpp.o ${prefix}/lib/objects-Release/CanvasPainter_resources_13/.qt/rcc/qrc_qcshaders_aasssct_init.cpp.o ${libdir}/QtCanvasPainter.framework/QtCanvasPainter -F${libdir} -framework QtQuick -framework QtQmlMeta -framework QtQmlModels -framework QtQmlWorkerScript -framework QtOpenGL -framework QtQml -framework QtNetwork -framework Security -framework CFNetwork -framework Network -framework QtWidgets -framework QtGui -framework QtCore -framework IOKit -framework UniformTypeIdentifiers -lm -lQt6BundledPcre2 -framework MobileCoreServices -framework OpenGLES -framework ImageIO -framework CoreFoundation -framework CoreGraphics -framework Accelerate -framework QuartzCore -framework Foundation -lQt6BundledHarfbuzz -framework CoreText -framework UIKit -lQt6BundledFreetype -lQt6BundledLibpng -lz -framework Metal
+Cflags: -F${libdir} -I${includedir} -I${libdir}/QtCanvasPainter.framework/Headers -DQT_CANVASPAINTER_LIB
+Requires: QtCanvasPainter

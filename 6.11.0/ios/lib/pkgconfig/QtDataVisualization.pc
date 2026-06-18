@@ -1,0 +1,14 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: QtDataVisualization
+Description: QtDataVisualization module
+Version: 6.11.0
+Libs: -F${libdir} -framework QtDataVisualization ${prefix}/lib/objects-Release/DataVisualization_resources_1/.qt/rcc/qrc_datavisualizationshaders_init.cpp.o ${prefix}/lib/objects-Release/DataVisualization_resources_2/.qt/rcc/qrc_datavisualizationmeshes_init.cpp.o ${libdir}/QtDataVisualization.framework/QtDataVisualization -F${libdir} -framework QtOpenGL -framework QtGui -framework QtCore -framework IOKit -framework UniformTypeIdentifiers -lm -lQt6BundledPcre2 -framework MobileCoreServices -framework OpenGLES -framework ImageIO -framework CoreFoundation -framework CoreGraphics -framework Accelerate -framework QuartzCore -framework Foundation -lQt6BundledHarfbuzz -framework CoreText -framework UIKit -lQt6BundledFreetype -lQt6BundledLibpng -lz -framework Metal
+Cflags: -F${libdir} -I${includedir} -I${libdir}/QtDataVisualization.framework/Headers -DQT_DATAVISUALIZATION_LIB
+Requires: QtDataVisualization

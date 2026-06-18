@@ -1,0 +1,14 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: QtLocation
+Description: QtLocation module
+Version: 6.11.0
+Libs: -F${libdir} -framework QtLocation ${prefix}/qml/QtLocation/objects-Debug/Location_resources_1/.qt/rcc/qrc_qmake_QtLocation_init.cpp.o ${prefix}/qml/QtLocation/objects-Debug/Location_resources_2/.qt/rcc/qrc_Location_raw_qml_0_init.cpp.o ${libdir}/QtLocation.framework/QtLocation_debug -F${libdir} -framework QtPositioningQuick -framework QtPositioning -lQt6Bundled_Clip2Tri_debug -lQt6Bundled_Clipper_debug -lQt6Bundled_Poly2Tri_debug -framework QtQuickShapes -framework QtQuick -framework QtQmlMeta -framework QtQmlModels -framework QtQmlWorkerScript -framework QtOpenGL -framework QtGui -framework OpenGLES -framework ImageIO -framework CoreGraphics -framework Accelerate -framework QuartzCore -lQt6BundledHarfbuzz_debug -framework CoreText -lQt6BundledFreetype_debug -lQt6BundledLibpng_debug -framework Metal -framework QtQml -framework QtNetwork -framework Security -framework CFNetwork -framework Network -framework QtCore -lz -framework IOKit -framework CoreFoundation -framework Foundation -framework UniformTypeIdentifiers -lm -lQt6BundledPcre2_debug -framework MobileCoreServices -framework UIKit
+Cflags: -F${libdir} -I${includedir} -I${libdir}/QtLocation.framework/Headers -DQT_LOCATION_LIB
+Requires: QtLocation

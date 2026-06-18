@@ -1,0 +1,13 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: QtTextToSpeech
+Description: QtTextToSpeech module
+Version: 6.11.0
+Libs: -F${libdir} -framework QtTextToSpeech -F${libdir} -framework QtMultimedia -framework QtGui -framework OpenGLES -framework ImageIO -framework CoreGraphics -framework Accelerate -framework QuartzCore -lQt6BundledHarfbuzz_debug -framework CoreText -lQt6BundledFreetype_debug -lQt6BundledLibpng_debug -framework Metal -lQt6BundledTLSF_debug -framework QtConcurrent -framework QtNetwork -framework Security -framework CFNetwork -framework Network -framework CoreAudio -framework AudioToolbox -framework CoreVideo -framework CoreMedia -framework AVFoundation -framework QtCore -lz -framework IOKit -framework CoreFoundation -framework Foundation -framework UniformTypeIdentifiers -lm -lQt6BundledPcre2_debug -framework MobileCoreServices -framework UIKit
+Cflags: -F${libdir} -I${includedir} -I${libdir}/QtTextToSpeech.framework/Headers -DQT_TEXTTOSPEECH_LIB

@@ -1,0 +1,13 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: QtProtobufWellKnownTypes
+Description: QtProtobufWellKnownTypes module
+Version: 6.11.0
+Libs: -F${libdir} -framework QtProtobufWellKnownTypes -F${libdir} -framework QtProtobuf -framework QtCore -lz -framework IOKit -framework CoreFoundation -framework Foundation -framework UniformTypeIdentifiers -lm -lQt6BundledPcre2 -framework MobileCoreServices -framework UIKit
+Cflags: -F${libdir} -I${includedir} -I${libdir}/QtProtobufWellKnownTypes.framework/Headers -DQT_PROTOBUFWELLKNOWNTYPES_LIB

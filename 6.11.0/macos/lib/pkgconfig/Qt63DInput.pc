@@ -1,0 +1,14 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: Qt63DInput
+Description: Qt63DInput module
+Version: 6.11.0
+Libs: -F${libdir} -framework Qt3DInput -framework QtCore
+Cflags: -F${libdir} -I${includedir} -I${libdir}/Qt3DInput.framework/Headers -DQT_3DINPUT_LIB
+Requires: Qt6Core
