@@ -1,0 +1,13 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: Qt6Core5Compatd
+Description: Qt6Core5Compatd module
+Version: 6.11.0
+Libs: -L${libdir} -lQt6Core5Compatd
+Cflags: -I${includedir} -I${includedir}/QtCore5Compatd -DQT_CORE5COMPATD_LIB

@@ -1,0 +1,13 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: Qt6Widgetsd
+Description: Qt6Widgetsd module
+Version: 6.11.0
+Libs: -L${libdir} -lQt6Widgetsd
+Cflags: -I${includedir} -I${includedir}/QtWidgetsd -DQT_WIDGETSD_LIB

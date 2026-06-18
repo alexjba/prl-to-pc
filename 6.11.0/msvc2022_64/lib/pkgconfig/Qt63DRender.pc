@@ -1,0 +1,14 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: Qt63DRender
+Description: Qt63DRender module
+Version: 6.11.0
+Libs: -L${libdir} -lQt63DRender
+Cflags: -I${includedir} -I${includedir}/QtDRender -DQT_DRENDER_LIB
+Requires: Qt63DCore Qt6Core Qt6OpenGL Qt6Concurrent

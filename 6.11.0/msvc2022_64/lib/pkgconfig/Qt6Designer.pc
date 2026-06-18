@@ -1,0 +1,14 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: Qt6Designer
+Description: Qt6Designer module
+Version: 6.11.0
+Libs: -L${libdir} -lQt6Designer
+Cflags: -I${includedir} -I${includedir}/QtDesigner -DQT_DESIGNER_LIB
+Requires: Qt6Core Qt6Gui Qt6Widgets Qt6Xml Qt6OpenGLWidgets Qt6OpenGL

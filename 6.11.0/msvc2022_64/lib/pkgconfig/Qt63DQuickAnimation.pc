@@ -1,0 +1,14 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: Qt63DQuickAnimation
+Description: Qt63DQuickAnimation module
+Version: 6.11.0
+Libs: -L${libdir} -lQt63DQuickAnimation
+Cflags: -I${includedir} -I${includedir}/QtDQuickAnimation -DQT_DQUICKANIMATION_LIB
+Requires: Qt63DAnimation Qt63DCore Qt63DQuick Qt63DRender Qt6Core Qt6Gui Qt6Qml

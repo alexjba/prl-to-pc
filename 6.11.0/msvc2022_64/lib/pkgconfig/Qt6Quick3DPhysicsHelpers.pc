@@ -1,0 +1,14 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: Qt6Quick3DPhysicsHelpers
+Description: Qt6Quick3DPhysicsHelpers module
+Version: 6.11.0
+Libs: -L${libdir} -lQt6Quick3DPhysicsHelpers
+Cflags: -I${includedir} -I${includedir}/QtQuick3DPhysicsHelpers -DQT_QUICK3DPHYSICSHELPERS_LIB
+Requires: Qt6Qml Qt6Quick Qt6Quick3D Qt6Quick3DPhysics

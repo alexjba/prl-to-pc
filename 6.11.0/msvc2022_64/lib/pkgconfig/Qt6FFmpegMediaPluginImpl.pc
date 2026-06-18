@@ -1,0 +1,13 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: Qt6FFmpegMediaPluginImpl
+Description: Qt6FFmpegMediaPluginImpl module
+Version: 6.11.0
+Libs: -L${libdir} -lQt6FFmpegMediaPluginImpl ${libdir}/Qt6Multimedia.lib ${libdir}/Qt6Gui.lib -ld3d11 -ldxgi -ldxguid -ld3d12 ${libdir}/Qt6Network.lib ${libdir}/Qt6Core.lib -lmpr -luserenv -lws2_32 -lmf -lmfplat -lmfreadwrite -lmfuuid -lDwmapi -lDxva2 -lwindowsapp avformat.lib avcodec.lib swresample.lib swscale.lib avutil.lib
+Cflags: -I${includedir} -I${includedir}/QtFFmpegMediaPluginImpl -DQT_FFMPEGMEDIAPLUGINIMPL_LIB

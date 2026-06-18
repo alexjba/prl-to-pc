@@ -1,0 +1,14 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: Qt6QuickTemplates2
+Description: Qt6QuickTemplates2 module
+Version: 6.11.0
+Libs: -L${libdir} -lQt6QuickTemplates2
+Cflags: -I${includedir} -I${includedir}/QtQuickTemplates2 -DQT_QUICKTEMPLATES2_LIB
+Requires: Qt6Core Qt6Gui Qt6Quick Qt6Qml Qt6QmlModels

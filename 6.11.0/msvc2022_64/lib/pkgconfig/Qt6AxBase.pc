@@ -1,0 +1,13 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: Qt6AxBase
+Description: Qt6AxBase module
+Version: 6.11.0
+Libs: -L${libdir} -lQt6AxBase ${libdir}/Qt6Widgets.lib ${libdir}/Qt6Gui.lib ${libdir}/Qt6Core.lib -lmpr -luserenv -ld3d11 -ldxgi -ldxguid -ld3d12 -ladvapi32 -lgdi32 -lole32 -loleaut32 -luser32
+Cflags: -I${includedir} -I${includedir}/QtAxBase -DQT_AXBASE_LIB

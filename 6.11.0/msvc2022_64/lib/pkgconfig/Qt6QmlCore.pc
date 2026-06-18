@@ -1,0 +1,14 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: Qt6QmlCore
+Description: Qt6QmlCore module
+Version: 6.11.0
+Libs: -L${libdir} -lQt6QmlCore
+Cflags: -I${includedir} -I${includedir}/QtQmlCore -DQT_QMLCORE_LIB
+Requires: Qt6Core Qt6Qml

@@ -1,0 +1,14 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: Qt6NetworkAuth
+Description: Qt6NetworkAuth module
+Version: 6.11.0
+Libs: -L${libdir} -lQt6NetworkAuth
+Cflags: -I${includedir} -I${includedir}/QtNetworkAuth -DQT_NETWORKAUTH_LIB
+Requires: Qt6Core Qt6Network Qt6Gui

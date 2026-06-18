@@ -1,0 +1,13 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: Qt6QmlLS
+Description: Qt6QmlLS module
+Version: 6.11.0
+Libs: -L${libdir} -lQt6QmlLS ${libdir}/Qt6LanguageServer.lib ${libdir}/Qt6JsonRpc.lib ${libdir}/Qt6QmlFormat.lib ${libdir}/Qt6QmlDom.lib ${libdir}/Qt6QmlToolingSettings.lib ${libdir}/Qt6QmlCompiler.lib ${libdir}/Qt6Qml.lib ${libdir}/Qt6Network.lib -lws2_32 -lshell32 ${libdir}/Qt6QmlToolingSettings.lib ${libdir}/Qt6Core.lib -lmpr -luserenv
+Cflags: -I${includedir} -I${includedir}/QtQmlLS -DQT_QMLLS_LIB

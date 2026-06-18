@@ -1,0 +1,14 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: Qt6Qml
+Description: Qt6Qml module
+Version: 6.11.0
+Libs: -L${libdir} -lQt6Qml
+Cflags: -I${includedir} -I${includedir}/QtQml -DQT_QML_LIB
+Requires: Qt6Core Qt6Network

@@ -211,6 +211,38 @@ proc getDependenciesFromCMake(cmakePath: string): seq[string] =
   
   return result
 
+proc getCMakeDeps(prlPath, moduleName: string): seq[string] =
+  ## Read a Qt module's real dependencies from its <name>Dependencies.cmake (Qt
+  ## ships these next to the libs, e.g. lib/cmake/Qt6Qml/Qt6QmlDependencies.cmake).
+  ## Windows .prl files carry no dependency info, so without this the generated
+  ## .pc files have no `Requires:` and pkg-config can't resolve transitive include
+  ## dirs — e.g. compiling the Qt6Qml glue, which #includes <QObject> (a QtCore
+  ## header), fails because -I.../include/QtCore (from Qt6Core's cflags) is missing.
+  ## Only emit deps that have a sibling .prl (so a .pc is generated for them too);
+  ## otherwise a `Requires:` entry would reference a package pkg-config can't find.
+  let libDir = prlPath.splitPath().head
+  let cmakePath = libDir / "cmake" / moduleName / (moduleName & "Dependencies.cmake")
+  if not fileExists(cmakePath):
+    return @[]
+  # Parse ONLY the required-dependency declaration:
+  #   set(__qt_<Module>_target_deps "Qt6Core\;6.11.0;Qt6Network\;6.11.0")
+  # NOT the whole file (which contains example deps in comments — that produced a
+  # bogus Qt6Core->Qt6Gui edge and a Core<->Gui cycle that pkg-config-lite chokes
+  # on) and NOT the *optional*_target_deps line (optional deps can form cycles;
+  # the required graph is a DAG). Only keep deps that have a sibling .prl.
+  for line in readFile(cmakePath).splitLines():
+    if "_target_deps \"" notin line or "optional" in line:
+      continue
+    let q1 = line.find('"')
+    let q2 = line.rfind('"')
+    if q1 < 0 or q2 <= q1:
+      continue
+    for dep in findAllStr(line[q1 + 1 ..< q2], re2"Qt6[A-Za-z0-9]+"):
+      if dep == moduleName: continue
+      if dep in result: continue
+      if fileExists(libDir / (dep & ".prl")):
+        result.add dep
+
 proc getFrameworkLibsString(module: QtModule): string =
   ## Generate framework Libs string including all dependencies
   var result = "-F${libdir} -framework " & module.libName
@@ -321,15 +353,16 @@ proc parsePrlFile*(filePath: string): QtModule =
         else:
           # For regular libraries
           moduleInfo.libName = libName
-          var baseName = libName
-          
-          # Clean up the name for pkg-config
-          if moduleInfo.isStatic:
-            baseName = baseName.replace("lib", "").replace(".a", "")
-          else:
-            baseName = baseName.replace("lib", "").replace(".so", "")
-            
-          moduleInfo.name = baseName
+
+          # Derive the canonical pkg-config name from QMAKE_PRL_TARGET, whose
+          # form is platform-dependent: libQt6Core.so / libQt6Core.a (Unix),
+          # Qt6Core.lib (Windows import lib) or Qt6Core.dll. Strip a leading
+          # "lib" prefix and the platform library extension only. A blanket
+          # replace("lib","") would also eat the "lib" inside ".lib", yielding
+          # "Qt6Core." — which no longer matches `pkg-config Qt6Core`.
+          moduleInfo.name = libName
+            .replace(re2"^lib", "")
+            .replace(re2"\.(a|so|dylib|lib|dll)(\.\d+)*$", "")
         
         moduleInfo.description = moduleInfo.name & " module"
         
@@ -397,7 +430,26 @@ proc parsePrlFile*(filePath: string): QtModule =
   # If no libs were set yet but we have a framework, set them now with dependencies
   if moduleInfo.libs.len == 0 and moduleInfo.isIOS and frameworkName.len > 0:
     moduleInfo.libs = getFrameworkLibsString(moduleInfo)
-  
+
+  # Ensure the module's own library is linked. Windows shared modules (e.g.
+  # Qt6Core.prl) carry only TARGET/CONFIG/VERSION and no QMAKE_PRL_LIBS line, so
+  # the `-L${libdir} -l<name>` above is never emitted and Libs: comes out empty —
+  # making `pkg-config --libs Qt6Core` return nothing. Prepend it here when the
+  # module's own -l flag isn't already present. (iOS frameworks link differently,
+  # handled above.)
+  if not moduleInfo.isIOS and moduleInfo.name.len > 0 and
+     ("-l" & moduleInfo.name) notin moduleInfo.libs:
+    let ownLib = "-L${libdir} -l" & moduleInfo.name
+    moduleInfo.libs =
+      if moduleInfo.libs.len > 0: ownLib & " " & moduleInfo.libs
+      else: ownLib
+
+  # Populate Requires: from the module's Dependencies.cmake when the .prl itself
+  # carried none (always the case on Windows). This gives pkg-config the transitive
+  # cflags (include dirs) and libs of dependency modules.
+  if not moduleInfo.isIOS and moduleInfo.requires.len == 0 and moduleInfo.name.len > 0:
+    moduleInfo.requires = getCMakeDeps(filePath, moduleInfo.name)
+
   # Generate appropriate CFLAGS.
   # Work from the arch-stripped canonical name (Qt6Core, not Qt6Core_arm64-v8a)
   # so the header subdir and feature define are correct. The Qt header subdir is
@@ -420,14 +472,18 @@ proc parsePrlFile*(filePath: string): QtModule =
   return moduleInfo
 
 proc generatePcFile(module: QtModule, outputDir: string, prefix: string, hostBins: string) =
-  let host_bins = if hostBins.len > 0: hostBins else: "${prefix}" & DirSep & "bin"
+  # pkg-config .pc files must use forward slashes for path variables on ALL
+  # platforms: pkg-config treats backslash as an escape and silently drops it,
+  # so ${prefix}\include would expand to "<prefix>include". Don't use the host's
+  # DirSep here (it's "\" on Windows).
+  let host_bins = if hostBins.len > 0: hostBins else: "${prefix}/bin"
   ## Generate a .pc file for a Qt module
   let content = fmt"""prefix={prefix}
 exec_prefix=${{prefix}}
-bindir=${{prefix}}{DirSep}bin
-libexecdir=${{prefix}}{DirSep}libexec
-libdir=${{prefix}}{DirSep}lib
-includedir=${{prefix}}{DirSep}include
+bindir=${{prefix}}/bin
+libexecdir=${{prefix}}/libexec
+libdir=${{prefix}}/lib
+includedir=${{prefix}}/include
 host_bins={host_bins}
 
 Name: {module.name}
@@ -471,13 +527,17 @@ proc scanForFrameworks(dir: string, outputDir: string, prefix: string, hostBins:
 
 proc createBaseQtPcFile(outputDir: string, prefix: string, hostBins: string) =
   ## Create a base Qt6.pc file that other Qt modules can depend on
-  let host_bins = if hostBins.len > 0: hostBins else: "${prefix}" & DirSep & "bin"
+  # pkg-config .pc files must use forward slashes for path variables on ALL
+  # platforms: pkg-config treats backslash as an escape and silently drops it,
+  # so ${prefix}\include would expand to "<prefix>include". Don't use the host's
+  # DirSep here (it's "\" on Windows).
+  let host_bins = if hostBins.len > 0: hostBins else: "${prefix}/bin"
   let content = fmt"""prefix={prefix}
 exec_prefix=${{prefix}}
-bindir=${{prefix}}{DirSep}bin
-libexecdir=${{prefix}}{DirSep}libexec
-libdir=${{prefix}}{DirSep}lib
-includedir=${{prefix}}{DirSep}include
+bindir=${{prefix}}/bin
+libexecdir=${{prefix}}/libexec
+libdir=${{prefix}}/lib
+includedir=${{prefix}}/include
 host_bins={host_bins}
 
 Name: Qt6
@@ -507,14 +567,60 @@ proc convertPrlToPc*(inputDir, outputDir, prefix, hostBins: string) =
   echo "Scanning directory for frameworks: ", inputDir
   scanForFrameworks(inputDir, outputDir, prefix, hostBins)
 
+proc generateBundled*(qtPath, outRoot: string) =
+  ## Generate a committed, relocatable pkg-config tree that mirrors Qt's own
+  ## on-disk layout:  <outRoot>/<version>/<kit>/lib/pkgconfig/*.pc
+  ##
+  ## `qtPath` is the Qt kit dir or its lib/ subdir (the dir holding the .prl
+  ## files), e.g. C:/Qt/6.11.0/msvc2022_64 or .../msvc2022_64/lib. The Qt
+  ## version and kit are derived from the path (<...>/<version>/<kit>[/lib]).
+  ##
+  ## A placeholder prefix (@@QT_PREFIX@@) is baked because consumers resolve
+  ## ${prefix} from the .pc file's location via `pkg-config --define-prefix`
+  ## once the files sit under a real <kit>/lib/pkgconfig — so the literal value
+  ## is never used at build time. host_bins defaults to ${prefix}/bin (so the
+  ## tree stays prefix-relocatable).
+  var libDir = qtPath
+  while libDir.len > 0 and libDir[^1] in {'/', '\\'}:
+    libDir.setLen(libDir.len - 1)
+  # Accept either the kit dir or its lib/ subdir.
+  if cmpIgnoreCase(lastPathPart(libDir), "lib") != 0 and dirExists(libDir / "lib"):
+    libDir = libDir / "lib"
+  let prefixDir = parentDir(libDir)               # <...>/<version>/<kit>
+  let kit = lastPathPart(prefixDir)               # e.g. msvc2022_64
+  let version = lastPathPart(parentDir(prefixDir)) # e.g. 6.11.0
+  if version.len == 0 or kit.len == 0:
+    quit("prl_to_pc generate: could not derive <version>/<kit> from path: " & qtPath, 1)
+
+  let outDir = outRoot / version / kit / "lib" / "pkgconfig"
+  echo "Qt version: ", version, "  kit: ", kit
+  echo "Input  (libs): ", libDir
+  echo "Output (.pc):  ", outDir
+  removeDir(outDir)   # clean regenerate (idempotent)
+  # Placeholder prefix + empty hostBins (-> ${prefix}/bin) keep the tree
+  # machine-independent; --define-prefix resolves the real prefix on consume.
+  convertPrlToPc(libDir, outDir, "@@QT_PREFIX@@", "")
+
 when isMainModule:
+  # `generate` mode: bundles all the layout/prefix logic — derives the Qt
+  # version+kit from the libs path and writes <outRoot>/<version>/<kit>/lib/pkgconfig.
+  if paramCount() >= 1 and paramStr(1) == "generate":
+    if paramCount() < 2:
+      echo "Usage: prl_to_pc generate <qt_lib_dir> [out_root]"
+      quit(1)
+    let qtPath = paramStr(2)
+    let outRoot = if paramCount() >= 3: paramStr(3) else: getCurrentDir()
+    generateBundled(qtPath, outRoot)
+    quit(0)
+
   if paramCount() < 3:
     echo "Usage: prl_to_pc <input_dir> <output_dir> <prefix>"
     echo "   or: prl_to_pc convert <input_dir> <output_dir> <prefix>"
+    echo "   or: prl_to_pc generate <qt_lib_dir> [out_root]"
     quit(1)
   echo "paramCount: ", paramCount()
   var inputDir, outputDir, prefix, hostBins: string
-  
+
   if paramStr(1) == "convert":
     if paramCount() < 4:
       echo "Usage: prl_to_pc convert <input_dir> <output_dir> <prefix>"

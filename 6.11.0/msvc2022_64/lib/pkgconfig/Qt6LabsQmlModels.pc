@@ -1,0 +1,14 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: Qt6LabsQmlModels
+Description: Qt6LabsQmlModels module
+Version: 6.11.0
+Libs: -L${libdir} -lQt6LabsQmlModels
+Cflags: -I${includedir} -I${includedir}/QtLabsQmlModels -DQT_LABSQMLMODELS_LIB
+Requires: Qt6QmlModels Qt6Qml

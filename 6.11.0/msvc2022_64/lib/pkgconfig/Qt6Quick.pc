@@ -1,0 +1,14 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: Qt6Quick
+Description: Qt6Quick module
+Version: 6.11.0
+Libs: -L${libdir} -lQt6Quick
+Cflags: -I${includedir} -I${includedir}/QtQuick -DQT_QUICK_LIB
+Requires: Qt6Core Qt6Gui Qt6Qml Qt6QmlModels Qt6QmlMeta Qt6Network Qt6OpenGL

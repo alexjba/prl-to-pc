@@ -1,0 +1,14 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: Qt63DQuickScene3D
+Description: Qt63DQuickScene3D module
+Version: 6.11.0
+Libs: -L${libdir} -lQt63DQuickScene3D
+Cflags: -I${includedir} -I${includedir}/QtDQuickScene3D -DQT_DQUICKSCENE3D_LIB
+Requires: Qt63DCore Qt6Core Qt6Quick Qt63DRender Qt6Gui Qt6Qml Qt63DInput Qt63DLogic Qt63DAnimation

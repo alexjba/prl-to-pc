@@ -1,0 +1,14 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: Qt63DQuickExtras
+Description: Qt63DQuickExtras module
+Version: 6.11.0
+Libs: -L${libdir} -lQt63DQuickExtras
+Cflags: -I${includedir} -I${includedir}/QtDQuickExtras -DQT_DQUICKEXTRAS_LIB
+Requires: Qt63DCore Qt63DExtras Qt63DInput Qt63DLogic Qt63DQuick Qt63DRender Qt6Core Qt6Gui Qt6Qml

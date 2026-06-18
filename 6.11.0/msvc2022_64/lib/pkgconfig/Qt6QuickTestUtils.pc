@@ -1,0 +1,13 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: Qt6QuickTestUtils
+Description: Qt6QuickTestUtils module
+Version: 6.11.0
+Libs: -L${libdir} -lQt6QuickTestUtils ${libdir}/Qt6QmlMeta.lib ${libdir}/Qt6QmlModels.lib ${libdir}/Qt6QmlWorkerScript.lib ${libdir}/Qt6Quick.lib ${libdir}/Qt6OpenGL.lib -luser32 ${libdir}/Qt6Gui.lib -ld3d11 -ldxgi -ldxguid -ld3d12 ${libdir}/Qt6Qml.lib ${libdir}/Qt6Network.lib -lws2_32 -lshell32 ${libdir}/Qt6QuickTest.lib ${libdir}/Qt6Test.lib ${libdir}/Qt6Core.lib -lmpr -luserenv
+Cflags: -I${includedir} -I${includedir}/QtQuickTestUtils -DQT_QUICKTESTUTILS_LIB

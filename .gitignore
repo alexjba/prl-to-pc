@@ -5,6 +5,9 @@ htmldocs/
 *.dll
 *.so
 *.dylib
-*.pc 
+*.pc
+# but keep the pre-generated, committed Qt pkg-config tree
+# (<qtVersion>/<kit>/lib/pkgconfig/*.pc, produced by `make generate-pkgconfig-files`)
+!**/lib/pkgconfig/*.pc
 nimble.develop
 nimble.paths

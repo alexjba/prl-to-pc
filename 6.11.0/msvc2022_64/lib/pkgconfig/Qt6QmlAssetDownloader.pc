@@ -1,0 +1,13 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: Qt6QmlAssetDownloader
+Description: Qt6QmlAssetDownloader module
+Version: 6.11.0
+Libs: -L${libdir} -lQt6QmlAssetDownloader ${prefix}/qml/Qt/labs/assetdownloader/objects-RelWithDebInfo/QmlAssetDownloaderPrivate_resources_1/.qt/rcc/qrc_qmake_Qt_labs_assetdownloader_init.cpp.obj ${libdir}/Qt6QmlAssetDownloader.lib ${libdir}/Qt6TaskTree.lib ${libdir}/Qt6Concurrent.lib ${libdir}/Qt6Qml.lib ${libdir}/Qt6Network.lib ${libdir}/Qt6Core.lib -lmpr -luserenv -lws2_32 -lshell32
+Cflags: -I${includedir} -I${includedir}/QtQmlAssetDownloader -DQT_QMLASSETDOWNLOADER_LIB

@@ -1,0 +1,14 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: Qt6RemoteObjectsQml
+Description: Qt6RemoteObjectsQml module
+Version: 6.11.0
+Libs: -L${libdir} -lQt6RemoteObjectsQml
+Cflags: -I${includedir} -I${includedir}/QtRemoteObjectsQml -DQT_REMOTEOBJECTSQML_LIB
+Requires: Qt6Core Qt6Gui Qt6Qml Qt6RemoteObjects

@@ -1,0 +1,13 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: Qt6Quick3DAssetUtilsd
+Description: Qt6Quick3DAssetUtilsd module
+Version: 6.11.0
+Libs: -L${libdir} -lQt6Quick3DAssetUtilsd
+Cflags: -I${includedir} -I${includedir}/QtQuick3DAssetUtilsd -DQT_QUICK3DASSETUTILSD_LIB

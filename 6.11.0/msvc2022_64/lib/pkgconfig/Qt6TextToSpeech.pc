@@ -1,0 +1,14 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: Qt6TextToSpeech
+Description: Qt6TextToSpeech module
+Version: 6.11.0
+Libs: -L${libdir} -lQt6TextToSpeech
+Cflags: -I${includedir} -I${includedir}/QtTextToSpeech -DQT_TEXTTOSPEECH_LIB
+Requires: Qt6Core Qt6Multimedia

@@ -1,0 +1,14 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: Qt63DQuickLogic
+Description: Qt63DQuickLogic module
+Version: 6.11.0
+Libs: -L${libdir} -lQt63DQuickLogic
+Cflags: -I${includedir} -I${includedir}/QtDQuickLogic -DQT_DQUICKLOGIC_LIB
+Requires: Qt63DCore Qt63DLogic Qt6Core Qt6Gui Qt6Qml

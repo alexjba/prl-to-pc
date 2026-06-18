@@ -1,0 +1,13 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: Qt6FbSupport
+Description: Qt6FbSupport module
+Version: 6.11.0
+Libs: -L${libdir} -lQt6FbSupport ${libdir}/Qt6Gui.lib ${libdir}/Qt6Core.lib -lmpr -luserenv -ld3d11 -ldxgi -ldxguid -ld3d12
+Cflags: -I${includedir} -I${includedir}/QtFbSupport -DQT_FBSUPPORT_LIB

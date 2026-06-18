@@ -1,0 +1,13 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: Qt6QuickControlsTestUtilsd
+Description: Qt6QuickControlsTestUtilsd module
+Version: 6.11.0
+Libs: -L${libdir} -lQt6QuickControlsTestUtilsd ${prefix}/qml/Qt/test/controls/objects-Debug/QuickControlsTestUtilsPrivate_resources_1/.qt/rcc/qrc_qmake_Qt_test_controls_init.cpp.obj ${libdir}/Qt6QuickControlsTestUtilsd.lib ${libdir}/Qt6QuickControls2d.lib ${libdir}/Qt6QuickTemplates2d.lib ${libdir}/Qt6QuickTestUtilsd.lib ${libdir}/Qt6QmlMetad.lib ${libdir}/Qt6QmlModelsd.lib ${libdir}/Qt6QmlWorkerScriptd.lib ${libdir}/Qt6QuickTestd.lib ${libdir}/Qt6Testd.lib ${libdir}/Qt6QuickDialogs2QuickImpld.lib ${libdir}/Qt6Quickd.lib ${libdir}/Qt6OpenGLd.lib -luser32 ${libdir}/Qt6Guid.lib -ld3d11 -ldxgi -ldxguid -ld3d12 ${libdir}/Qt6Qmld.lib ${libdir}/Qt6Networkd.lib ${libdir}/Qt6Cored.lib -lmpr -luserenv -lws2_32 -lshell32
+Cflags: -I${includedir} -I${includedir}/QtQuickControlsTestUtilsd -DQT_QUICKCONTROLSTESTUTILSD_LIB

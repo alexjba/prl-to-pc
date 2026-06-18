@@ -1,0 +1,14 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: Qt6QuickDialogs2Utils
+Description: Qt6QuickDialogs2Utils module
+Version: 6.11.0
+Libs: -L${libdir} -lQt6QuickDialogs2Utils
+Cflags: -I${includedir} -I${includedir}/QtQuickDialogs2Utils -DQT_QUICKDIALOGS2UTILS_LIB
+Requires: Qt6Core Qt6Gui

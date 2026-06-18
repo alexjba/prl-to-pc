@@ -1,0 +1,14 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: Qt63DCore
+Description: Qt63DCore module
+Version: 6.11.0
+Libs: -L${libdir} -lQt63DCore
+Cflags: -I${includedir} -I${includedir}/QtDCore -DQT_DCORE_LIB
+Requires: Qt6Concurrent Qt6Core Qt6Gui Qt6Network

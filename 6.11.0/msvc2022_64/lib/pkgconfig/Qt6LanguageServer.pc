@@ -1,0 +1,13 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: Qt6LanguageServer
+Description: Qt6LanguageServer module
+Version: 6.11.0
+Libs: -L${libdir} -lQt6LanguageServer ${libdir}/Qt6JsonRpc.lib ${libdir}/Qt6Core.lib -lmpr -luserenv
+Cflags: -I${includedir} -I${includedir}/QtLanguageServer -DQT_LANGUAGESERVER_LIB

@@ -1,0 +1,14 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: Qt6QuickControls2Imagine
+Description: Qt6QuickControls2Imagine module
+Version: 6.11.0
+Libs: -L${libdir} -lQt6QuickControls2Imagine
+Cflags: -I${includedir} -I${includedir}/QtQuickControls2Imagine -DQT_QUICKCONTROLS2IMAGINE_LIB
+Requires: Qt6Core Qt6Gui Qt6Qml Qt6QuickControls2ImagineStyleImpl Qt6QuickControls2Impl Qt6QuickControls2 Qt6Quick Qt6QuickTemplates2 Qt6QuickControls2Basic

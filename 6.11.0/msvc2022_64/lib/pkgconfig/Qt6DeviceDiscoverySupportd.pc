@@ -1,0 +1,13 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: Qt6DeviceDiscoverySupportd
+Description: Qt6DeviceDiscoverySupportd module
+Version: 6.11.0
+Libs: -L${libdir} -lQt6DeviceDiscoverySupportd ${libdir}/Qt6Cored.lib -lmpr -luserenv
+Cflags: -I${includedir} -I${includedir}/QtDeviceDiscoverySupportd -DQT_DEVICEDISCOVERYSUPPORTD_LIB

@@ -10,6 +10,13 @@ bin           = @["prl_to_pc"]
 requires "nim >= 1.6.0"
 requires "regex"
 
+# Build the unified pkg-config wrapper -> `pkg-config` (`pkg-config.exe` on
+# Windows), so it can shadow the real tool on PATH. The wrapper is dependency-free
+# (no `regex`), so this compiles cleanly with plain `nim c`. Invoked as
+# `nimble build` (nimbus-build-system's nimble runs .nimble TASKS via nim).
+task build, "Build the unified pkg-config wrapper (pkg-config[.exe])":
+  exec "nim c -d:release --hints:off --skipParentCfg:on -o:pkg-config src/pkgconfig_wrapper.nim"
+
 # Tasks
 task convert, "Convert .prl files to .pc files in a directory":
   echo "Converting .prl files to .pc files"

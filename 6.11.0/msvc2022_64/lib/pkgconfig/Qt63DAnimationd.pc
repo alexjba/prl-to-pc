@@ -1,0 +1,13 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: Qt63DAnimationd
+Description: Qt63DAnimationd module
+Version: 6.11.0
+Libs: -L${libdir} -lQt63DAnimationd
+Cflags: -I${includedir} -I${includedir}/QtDAnimationd -DQT_DANIMATIOND_LIB

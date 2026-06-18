@@ -1,0 +1,13 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: Qt6LottieVectorImageGenerator
+Description: Qt6LottieVectorImageGenerator module
+Version: 6.11.0
+Libs: -L${libdir} -lQt6LottieVectorImageGenerator
+Cflags: -I${includedir} -I${includedir}/QtLottieVectorImageGenerator -DQT_LOTTIEVECTORIMAGEGENERATOR_LIB

@@ -1,0 +1,14 @@
+prefix=@@QT_PREFIX@@
+exec_prefix=${prefix}
+bindir=${prefix}/bin
+libexecdir=${prefix}/libexec
+libdir=${prefix}/lib
+includedir=${prefix}/include
+host_bins=${prefix}/bin
+
+Name: Qt63DLogic
+Description: Qt63DLogic module
+Version: 6.11.0
+Libs: -L${libdir} -lQt63DLogic
+Cflags: -I${includedir} -I${includedir}/QtDLogic -DQT_DLOGIC_LIB
+Requires: Qt63DCore Qt6Core Qt6Gui
